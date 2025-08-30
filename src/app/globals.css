@@ -1,0 +1,1479 @@
+@import "tailwindcss";
+
+:root {
+  /* Global Color Palette */
+  --green-primary: #4a7c59;
+  --green-secondary: #6b8e7a;
+  --yellow-primary: #f4d03f;
+  --yellow-secondary: #f7dc6f;
+  --light-green: #a8d5ba;
+  --light-yellow: #f9e79f;
+  --neutral-dark: #414042;
+  --neutral-gray: #6d6e71;
+  --neutral-light: #f5f5f5;
+  --white: #ffffff;
+  --black: #000000;
+  
+  /* Background colors */
+  --background: var(--white);
+  --foreground: var(--neutral-dark);
+  
+  /* Roseate Header Colors */
+  --text-primary: #2C2C2C;
+  --text-secondary: #666666;
+  --hover-accent: #8B4513;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+/* Navigation Styles */
+.navbar {
+  position: fixed;
+  top: 60px;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1001;
+  cursor: pointer;
+  color: var(--white);
+}
+
+/* Notification Bar */
+.notification-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: var(--neutral-gray);
+  z-index: 99999;
+  height: 60px;
+}
+
+/* Masthead/Hero Section */
+.masthead {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#staticbackground,
+#changedbackground {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity 0.5s ease;
+}
+
+#changedbackground {
+  display: none;
+}
+
+/* Logo */
+.logo {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+/* Navigation Lists */
+.list-unstyled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-unstyled li {
+  margin: 1rem 0;
+}
+
+.list-unstyled a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.list-unstyled a:hover {
+  color: var(--yellow-primary);
+  transform: translateX(10px);
+}
+
+.city {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.description {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Bottom List */
+.bottom-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.bottom-list li {
+  margin: 0;
+}
+
+.bottom-list a {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--white);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.bottom-list a:hover {
+  background: var(--white);
+  color: var(--neutral-dark);
+}
+
+/* Down Arrow */
+.down-arrow {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.down-arrow a {
+  color: var(--white);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+/* Projects Section */
+.projects-section {
+  padding: 5rem 0;
+  background: var(--white);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--neutral-dark);
+}
+
+.sub-title2 {
+  display: block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--green-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  background: var(--neutral-dark);
+  color: var(--white);
+  padding: 2rem 0;
+}
+
+.footer-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.dotted-sep {
+  width: 4px;
+  height: 4px;
+  background: var(--white);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Side Navigation */
+.sidenav {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1002;
+  top: 0;
+  right: 0;
+  background-color: var(--white);
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: none;
+}
+
+.nav-bg-full {
+  background: var(--neutral-dark);
+  color: var(--white);
+  height: 100vh;
+}
+
+.nav-bg {
+  background: var(--neutral-light);
+  color: var(--neutral-dark);
+  height: 100vh;
+}
+
+.nav-links {
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+.nav-links:hover {
+  color: var(--yellow-primary);
+}
+
+/* Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--green-primary);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: var(--green-secondary);
+  transform: translateY(-3px);
+}
+
+/* Side Navigation Controls */
+.sidenavigation {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  display: none;
+}
+
+.audio-control {
+  background: var(--neutral-dark);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.book_now {
+  background: var(--green-primary);
+  color: var(--white);
+  padding: 1rem 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book_now:hover {
+  background: var(--green-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo {
+    max-width: 200px;
+  }
+  
+  .list-unstyled a {
+    font-size: 1rem;
+  }
+  
+  .bottom-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-desktop {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .footer-mobile {
+    display: block;
+  }
+  
+  .footer-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .footer-mobile {
+    display: none;
+  }
+}
+
+/* Animations */
+.fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes */
+.text-white {
+  color: var(--white);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.py-5 {
+  padding: 3rem 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-3 {
+  padding-top: 1rem;
+}
+
+.pt-4 {
+  padding-top: 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+}
+
+.no-gutters {
+  margin: 0;
+}
+
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding: 0;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 1rem;
+}
+
+.col-md-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 0 1rem;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.list-inline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-inline-item {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.list-inline-item:last-child {
+  margin-right: 0;
+}
+
+.mailtolink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nounderline {
+  text-decoration: none;
+}
+
+.sub-title5 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--neutral-gray);
+  margin-bottom: 1rem;
+}
+
+.title-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.sidenavigation-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--neutral-dark);
+}
+
+.line-in-middle {
+  width: 50px;
+  height: 2px;
+  background: var(--neutral-gray);
+  margin: 1rem auto;
+}
+
+@media (max-width: 768px) {
+  .col-md-6,
+  .col-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Roseate Header Styles */
+.roseate-header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.header-background .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.header-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+/* Section 1: Primary Brand Mark */
+.brand-mark {
+  margin-bottom: 4rem;
+}
+
+.brand-name {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.brand-subtitle {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.3em;
+  margin: 0.5rem 0 0 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Section 2: Primary Navigation (Hotels & Resorts) */
+.hotels-nav {
+  margin-bottom: 3rem;
+}
+
+.hotels-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.hotels-list li {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.hotels-list li:not(:last-child)::after {
+  content: '|';
+  color: var(--white);
+  margin: 0 1.5rem;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.hotels-list a {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--white);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+  white-space: nowrap;
+}
+
+.hotels-list a:hover {
+  color: var(--white);
+}
+
+.hotels-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--white);
+  transition: width 0.3s ease;
+}
+
+.hotels-list a:hover::after {
+  width: 100%;
+}
+
+/* Section 3: Secondary Navigation (Amenities/Experiences) */
+.amenities-nav {
+  margin-bottom: 2rem;
+}
+
+.amenities-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.amenities-list li {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.amenities-list a {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+.amenities-list a:hover {
+  color: var(--hover-accent);
+  transform: translateY(-1px);
+}
+
+.amenities-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--hover-accent);
+  transition: width 0.3s ease;
+}
+
+.amenities-list a:hover::after {
+  width: 100%;
+}
+
+.separator {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 0.8rem;
+  color: var(--white);
+  margin: 0 0.5rem;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+/* Responsive Design for Roseate Header */
+@media (max-width: 768px) {
+  .brand-name {
+    font-size: 3rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .hotels-list {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .hotels-list li:not(:last-child)::after {
+    display: none;
+  }
+  
+  .hotels-list a {
+    font-size: 0.9rem;
+  }
+  
+  .amenities-list {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .amenities-list a {
+    font-size: 0.8rem;
+  }
+  
+  .separator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 2.5rem;
+  }
+  
+  .brand-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .header-content {
+    padding: 0 1rem;
+  }
+  
+  .brand-mark {
+    margin-bottom: 3rem;
+  }
+  
+  .locations-nav {
+    margin-bottom: 2rem;
+  }
+}
+
+/* About Us Section Styles */
+.about-section {
+  padding: 6rem 0;
+  background: #FDF7F4;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  text-align: left;
+}
+
+/* Section 1: Page Title */
+.about-title {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-primary);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+  position: relative;
+}
+
+.about-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 3rem;
+  height: 1px;
+  background: var(--text-primary);
+}
+
+/* Section 2: Brand Name Heading */
+.about-brand-name {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 3rem 0 2rem 0;
+  line-height: 1.1;
+}
+
+/* Section 3: Body Text - Two Column Layout */
+.about-content {
+  display: flex;
+  gap: 4rem;
+  max-width: 100%;
+  margin: 0;
+}
+
+.about-column {
+  flex: 1;
+}
+
+.about-paragraph {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin: 0;
+  text-align: left;
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 0;
+  }
+  
+  .about-container {
+    padding: 0 2rem;
+  }
+  
+  .about-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-brand-name {
+    font-size: 3rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .about-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 3rem 0;
+  }
+  
+  .about-container {
+    padding: 0 1.5rem;
+  }
+  
+  .about-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-brand-name {
+    font-size: 2.5rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+  
+  .about-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .about-paragraph {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* USP's Section Styles */
+.usps-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.usps-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+/* Main Title */
+.usps-title {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 4rem 0;
+  line-height: 1.2;
+}
+
+/* Three Content Blocks Grid */
+.usps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Individual Cards */
+.usps-card {
+  text-align: left;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usps-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Icons */
+.usps-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.usps-icon-yellow {
+  background: var(--light-yellow);
+}
+
+.usps-icon-green {
+  background: var(--light-green);
+}
+
+.usps-icon-pink {
+  background: #f8d7da;
+}
+
+/* Card Titles */
+.usps-card-title {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+  text-transform: none;
+}
+
+/* Card Descriptions */
+.usps-card-description {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Responsive Design for USP's Section */
+@media (max-width: 768px) {
+  .usps-section {
+    padding: 4rem 0;
+  }
+  
+  .usps-container {
+    padding: 0 1.5rem;
+  }
+  
+  .usps-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .usps-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .usps-card {
+    padding: 1.5rem;
+  }
+  
+  .usps-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .usps-card-title {
+    font-size: 1.2rem;
+  }
+  
+  .usps-card-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .usps-section {
+    padding: 3rem 0;
+  }
+  
+  .usps-container {
+    padding: 0 1rem;
+  }
+  
+  .usps-title {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .usps-grid {
+    gap: 1.5rem;
+  }
+  
+  .usps-card {
+    padding: 1.25rem;
+  }
+  
+  .usps-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .usps-card-title {
+    font-size: 1.1rem;
+  }
+  
+  .usps-card-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* CTA Section Styles */
+.cta-section {
+  padding: 6rem 0;
+  background: var(--black);
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* CTA Title */
+.cta-title {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--white);
+  text-transform: none;
+  letter-spacing: 0.05em;
+  margin: 0 0 3rem 0;
+  line-height: 1.2;
+}
+
+/* CTA Button */
+.cta-button {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--black);
+  background: var(--white);
+  border: 2px solid var(--white);
+  padding: 1.2rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.cta-button:hover {
+  background: transparent;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design for CTA Section */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 4rem 0;
+  }
+  
+  .cta-container {
+    padding: 0 1.5rem;
+  }
+  
+  .cta-title {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .cta-button {
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-section {
+    padding: 3rem 0;
+  }
+  
+  .cta-container {
+    padding: 0 1rem;
+  }
+  
+  .cta-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    font-size: 0.95rem;
+    padding: 0.9rem 2rem;
+  }
+}
+
+/* Customer Testimonials Section Styles */
+.testimonials-section {
+  padding: 6rem 0;
+  background: var(--white);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+/* Main Title */
+.testimonials-title {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  color: #333333;
+  text-transform: none;
+  letter-spacing: 0.05em;
+  margin: 0 0 4rem 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Three Testimonial Cards Grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Testimonial Cards */
+.testimonial-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2.5rem 2rem 2rem 2rem;
+  text-align: center;
+  position: relative;
+  border: 1px solid #E0F2F7;
+  box-shadow: 0px 4px 10px rgba(173, 216, 230, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(173, 216, 230, 0.3);
+}
+
+.testimonial-card:focus {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+}
+
+/* Avatar Container */
+.testimonial-avatar {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-image {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 6px solid var(--white);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+/* Customer Name */
+.testimonial-name {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Company/Affiliation */
+.testimonial-company {
+  font-family: var(--font-inter), 'Inter', 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Star Rating */
+.testimonial-rating {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.star-icon {
+  width: 20px;
+  height: 20px;
+  color: #FACC15;
+}
+
+/* Divider */
+.testimonial-divider {
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    #D1D5DB 0,
+    #D1D5DB 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  margin: 1.5rem 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Testimonial Content */
+.testimonial-content {
+  position: relative;
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+.quote-mark {
+  font-family: var(--font-inter), 'Inter', 'Open Sans', sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: #E5E7EB;
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+  line-height: 1;
+  z-index: 1;
+}
+
+.testimonial-text {
+  font-family: var(--font-inter), 'Inter', 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.8;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design for Testimonials Section */
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .testimonial-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 4rem 0;
+  }
+  
+  .testimonials-container {
+    padding: 0 1.5rem;
+  }
+  
+  .testimonials-title {
+    font-size: 42px;
+    margin-bottom: 3rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .testimonial-card {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    max-width: 100%;
+  }
+  
+  .avatar-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .testimonial-name {
+    font-size: 18px;
+  }
+  
+  .testimonial-company {
+    font-size: 13px;
+  }
+  
+  .quote-mark {
+    font-size: 48px;
+    top: -0.75rem;
+    left: -0.25rem;
+  }
+  
+  .testimonial-text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-section {
+    padding: 3rem 0;
+  }
+  
+  .testimonials-container {
+    padding: 0 1rem;
+  }
+  
+  .testimonials-title {
+    font-size: 32px;
+    margin-bottom: 2.5rem;
+  }
+  
+  .testimonials-grid {
+    gap: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.75rem 1.25rem 1.25rem 1.25rem;
+  }
+  
+  .avatar-image {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .testimonial-name {
+    font-size: 16px;
+  }
+  
+  .testimonial-company {
+    font-size: 12px;
+  }
+  
+  .star-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .quote-mark {
+    font-size: 40px;
+    top: -0.5rem;
+    left: -0.25rem;
+  }
+  
+  .testimonial-text {
+    font-size: 14px;
+  }
+}
