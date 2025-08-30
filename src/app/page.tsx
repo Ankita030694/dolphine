@@ -5,15 +5,8 @@ export default function Home() {
     <div>
       <div className="roseate-header">
         {/* Background Image */}
-        <div className="header-background">
-          <Image
-            src="/opening.jpg"
-            alt="Dolphine Hotels & Resorts"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-          <div className="overlay"></div>
+        <div className="header-background bg-black">
+          {/* No background image, just solid black background */}
         </div>
 
         {/* Header Content */}
