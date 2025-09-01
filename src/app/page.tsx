@@ -143,7 +143,7 @@ export default function Home() {
             
             {/* Right side - Text content */}
             <div className="founders-note-text">
-              <h2 className="founders-note-title">A Vision for Growth</h2>
+              <h2 className="founders-note-title" style={{textAlign: "left", fontSize: "2rem", fontWeight: "300", color: "#333", marginBottom: "2rem"}}>A Vision for Growth</h2>
               <div className="founders-note-quote">
                 <p className="founders-quote-text">
                   "When I started my journey, I envisioned creating not just a business, but a family of brands that would touch people's lives in meaningful ways. Today, I'm proud to see how our brands have evolved and the impact they've made.
