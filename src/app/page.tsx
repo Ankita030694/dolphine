@@ -5,8 +5,15 @@ export default function Home() {
     <div>
       <div className="roseate-header">
         {/* Background Image */}
-        <div className="header-background bg-black">
-          {/* No background image, just solid black background */}
+        <div className="header-background">
+          <Image
+            src="/herobg.jpeg"
+            alt="Dolphine Hero Background"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="overlay"></div>
         </div>
 
         {/* Header Content */}
@@ -14,16 +21,11 @@ export default function Home() {
           {/* Section 1: Primary Brand Mark */}
           <div className="brand-mark">
             <h1 className="brand-name">Dolphine</h1>
-            <h2 className="brand-subtitle">HOTELS & RESORTS</h2>
           </div>
 
           {/* Section 2: Primary Navigation (Hotels & Resorts) */}
           <nav className="hotels-nav">
-            <ul className="hotels-list">
-              <li><a href="#Dolphine-new-delhi">Gifts by D'Mart</a></li>
-              <li><a href="#Dolphine-house-delhi">Herbgen</a></li>
-              <li><a href="#Dolphine-ganges-rishikesh">D'Mart Exclusif</a></li>
-            </ul>
+          <ul className="hotels-list"> <li><a href="#Dolphine-new-delhi">Gifts by D'Mart</a></li> <li><a href="#Dolphine-house-delhi">Herbgen</a></li> <li><a href="#Dolphine-ganges-rishikesh">D'Mart Exclusif</a></li> </ul>
           </nav>
         </header>
       </div>
@@ -35,18 +37,18 @@ export default function Home() {
           <h3 className="about-title">about</h3>
           
           {/* Section 2: Brand Name Heading */}
-          <h2 className="about-brand-name">Dolphine HOTELS & RESORTS</h2>
+          <h2 className="about-brand-name">Dolphine</h2>
           
           {/* Section 3: Body Text - Two Column Layout */}
           <div className="about-content">
             <div className="about-column">
               <p className="about-paragraph">
-                Dolphine Hotels and Resorts is a collection of luxury hotels consisting of seven niche hotels across India and the United Kingdom with more under development. The name 'Dolphine' comes from the graceful marine mammal known for its intelligence and elegance. Avant-garde, imaginative and contemporary in design, each Dolphine hotel has a story to tell. Key focus is laid on immaculate hospitality and service, strategic location, bespoke design and architecture, aesthetics, exemplary dining and meticulous attention to detail.
+                Dolphine lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
               </p>
             </div>
             <div className="about-column">
               <p className="about-paragraph">
-                In India the existing portfolio includes The Dolphine New Delhi, Dolphine House New Delhi and The Dolphine Ganges Rishikesh. In the United Kingdom, it includes Dolphine House London, The Dolphine Reading, The Dolphine Villa Bath and The Dolphine Edinburgh. Dolphine Hotels & Resorts is a brand of Bird Hospitality, Bird Group, India.
+                In India the existing portfolio includes Dolphine New Delhi, Dolphine House New Delhi and The Dolphine Ganges Rishikesh. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
           </div>
@@ -66,7 +68,7 @@ export default function Home() {
               <div className="usps-icon usps-icon-yellow"></div>
               <h3 className="usps-card-title">Immigration assistance</h3>
               <p className="usps-card-description">
-                Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
               </p>
             </div>
             
@@ -75,7 +77,7 @@ export default function Home() {
               <div className="usps-icon usps-icon-green"></div>
               <h3 className="usps-card-title">Intellectual property</h3>
               <p className="usps-card-description">
-                Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero.
               </p>
             </div>
             
@@ -84,7 +86,7 @@ export default function Home() {
               <div className="usps-icon usps-icon-pink"></div>
               <h3 className="usps-card-title">Compliance lawyer</h3>
               <p className="usps-card-description">
-                Lorem ipsum dolor sit amet consectetur. Vel mattis vel quam at.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus ante dapibus diam.
               </p>
             </div>
           </div>
@@ -95,7 +97,7 @@ export default function Home() {
       <section className="cta-section">
         <div className="cta-container">
           <h2 className="cta-title">Ready to Experience Excellence</h2>
-          <button className="cta-button">Get in touch</button>
+          <button className="cta-button">Lorem ipsum dolor</button>
         </div>
       </section>
 
@@ -112,14 +114,14 @@ export default function Home() {
               <div className="testimonial-avatar">
                                  <img 
                    src="/avatar-1.jpg" 
-                   alt="Yogesh Arora - Smartyields Agro Pvt Ltd"
+                   alt="Lorem ipsum avatar"
                    className="avatar-image"
                    width={92}
                    height={92}
                  />
               </div>
               <h3 className="testimonial-name">Yogesh Arora</h3>
-              <p className="testimonial-company">Smartyields Agro Pvt Ltd | Incorporation</p>
+              <p className="testimonial-company">Lorem ipsum dolor sit amet</p>
               <div className="testimonial-rating" role="img" aria-label="5 out of 5 stars">
                 <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -140,7 +142,7 @@ export default function Home() {
               <div className="testimonial-divider"></div>
               <div className="testimonial-content">
                 <p className="testimonial-text">
-                  Lorem ipsum dolor sit amet consectetur. Leo vitae velit egestas purus quis. In adipiscing pulvinar facilisi posuere. Mauris faucibus vitae tristique varius ut pellentesque. Eleifend elit.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
                 </p>
               </div>
             </article>
@@ -150,14 +152,14 @@ export default function Home() {
               <div className="testimonial-avatar">
                                  <img 
                    src="/avatar-2.jpg" 
-                   alt="Yogesh Arora - Smartyields Agro Pvt Ltd"
+                   alt="Lorem ipsum avatar"
                    className="avatar-image"
                    width={92}
                    height={92}
                  />
               </div>
               <h3 className="testimonial-name">Yogesh Arora</h3>
-              <p className="testimonial-company">Smartyields Agro Pvt Ltd | Incorporation</p>
+              <p className="testimonial-company">Lorem ipsum dolor sit amet</p>
               <div className="testimonial-rating" role="img" aria-label="5 out of 5 stars">
                 <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -179,7 +181,7 @@ export default function Home() {
               <div className="testimonial-content">
                 <span className="quote-mark" aria-hidden="true">"</span>
                 <p className="testimonial-text">
-                  Lorem ipsum dolor sit amet consectetur. Leo vitae velit egestas purus quis. In adipiscing pulvinar facilisi posuere. Mauris faucibus vitae tristique varius ut pellentesque. Eleifend elit.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
                 </p>
               </div>
             </article>
@@ -189,14 +191,14 @@ export default function Home() {
               <div className="testimonial-avatar">
                                  <img 
                    src="/avatar-3.jpg" 
-                   alt="Yogesh Arora - Smartyields Agro Pvt Ltd"
+                   alt="Lorem ipsum avatar"
                    className="avatar-image"
                    width={92}
                    height={92}
                  />
               </div>
               <h3 className="testimonial-name">Yogesh Arora</h3>
-              <p className="testimonial-company">Smartyields Agro Pvt Ltd | Incorporation</p>
+              <p className="testimonial-company">Lorem ipsum dolor sit amet</p>
               <div className="testimonial-rating" role="img" aria-label="5 out of 5 stars">
                 <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
@@ -218,7 +220,7 @@ export default function Home() {
               <div className="testimonial-content">
                 <span className="quote-mark" aria-hidden="true">"</span>
                 <p className="testimonial-text">
-                  Lorem ipsum dolor sit amet consectetur. Leo vitae velit egestas purus quis. In adipiscing pulvinar facilisi posuere. Mauris faucibus vitae tristique varius ut pellentesque. Eleifend elit.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
                 </p>
               </div>
             </article>
