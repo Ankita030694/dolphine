@@ -32,14 +32,14 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-heading">Follow us</h4>
             <div className="footer-social">
-              <a className="social-link h-12" aria-label="Instagram" href="#" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faInstagram}/>
+              <a className="social-link h-6" aria-label="Instagram" href="#" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faInstagram} size="sm" />
               </a>
               <a className="social-link" aria-label="LinkedIn" href="#" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faLinkedinIn} />
+                <FontAwesomeIcon icon={faLinkedinIn} size="sm" />
               </a>
               <a className="social-link" aria-label="Twitter" href="#" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faTwitter} />
+                <FontAwesomeIcon icon={faTwitter} size="sm" />
               </a>
             </div>
           </div>
