@@ -1621,6 +1621,246 @@ footer {
   }
 }
 
+/* Founders Note Section Styles */
+.founders-note-section {
+  padding: 6rem 0;
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founders-note-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: 100%;
+}
+
+.founders-note-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+/* Left side - Image */
+.founders-note-image {
+  flex: 0 0 45%;
+  max-width: 45%;
+}
+
+.founders-image-placeholder {
+  width: 100%;
+  height: 500px;
+  background: #f5f5f5;
+  border: 2px dashed #d4a574;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.founders-image-placeholder:hover {
+  background: #f0f0f0;
+  border-color: #b8945f;
+}
+
+/* Right side - Text content */
+.founders-note-text {
+  flex: 0 0 55%;
+  max-width: 55%;
+  padding-left: 2rem;
+}
+
+.founders-note-title {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 2.5rem 0;
+  line-height: 1.2;
+}
+
+.founders-note-quote {
+  margin-bottom: 2.5rem;
+}
+
+.founders-quote-text {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin: 0 0 1.5rem 0;
+  text-align: left;
+  font-style: italic;
+}
+
+.founders-quote-text:last-child {
+  margin-bottom: 0;
+}
+
+.founders-note-signature {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.founders-name {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.founders-title {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Responsive Design for Founders Note Section */
+@media (max-width: 1024px) {
+  .founders-note-content {
+    gap: 3rem;
+  }
+  
+  .founders-note-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+  }
+  
+  .founders-note-text {
+    flex: 0 0 60%;
+    max-width: 60%;
+    padding-left: 1.5rem;
+  }
+  
+  .founders-image-placeholder {
+    height: 450px;
+  }
+  
+  .founders-note-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .founders-quote-text {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .founders-note-section {
+    padding: 4rem 0;
+  }
+  
+  .founders-note-container {
+    padding: 0 2rem;
+  }
+  
+  .founders-note-content {
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .founders-note-image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .founders-note-text {
+    flex: none;
+    max-width: 100%;
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  .founders-image-placeholder {
+    height: 400px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .founders-note-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .founders-quote-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .founders-note-signature {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .founders-note-section {
+    padding: 3rem 0;
+  }
+  
+  .founders-note-container {
+    padding: 0 1.5rem;
+  }
+  
+  .founders-note-content {
+    gap: 2.5rem;
+  }
+  
+  .founders-image-placeholder {
+    height: 350px;
+    font-size: 1rem;
+  }
+  
+  .founders-note-title {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .founders-quote-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  
+  .founders-note-signature {
+    padding-top: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  
+  .founders-name {
+    font-size: 1.2rem;
+  }
+  
+  .founders-title {
+    font-size: 0.9rem;
+  }
+}
+
 /* Footer (Site) */
 .site-footer {
   background: #001f3f;

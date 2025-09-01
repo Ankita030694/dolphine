@@ -130,6 +130,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Founders Note Section */}
+      <section className="founders-note-section">
+        <div className="founders-note-container">
+          <div className="founders-note-content">
+            {/* Left side - Image placeholder */}
+            <div className="founders-note-image">
+              <div className="founders-image-placeholder">
+                <span>Founder Image</span>
+              </div>
+            </div>
+            
+            {/* Right side - Text content */}
+            <div className="founders-note-text">
+              <h2 className="founders-note-title">A Vision for Growth</h2>
+              <div className="founders-note-quote">
+                <p className="founders-quote-text">
+                  "When I started my journey, I envisioned creating not just a business, but a family of brands that would touch people's lives in meaningful ways. Today, I'm proud to see how our brands have evolved and the impact they've made.
+                </p>
+                <p className="founders-quote-text">
+                  Our success is built on understanding customer needs and delivering exceptional quality. We're now extending this opportunity to entrepreneurs who share our passion through our franchise program. Join us in this exciting journey of growth and success."
+                </p>
+              </div>
+              <div className="founders-note-signature">
+                <h3 className="founders-name">Rajesh Kumar</h3>
+                <p className="founders-title">Founder & CEO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="cta-section">
         <div className="cta-container">
