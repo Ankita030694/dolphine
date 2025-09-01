@@ -944,77 +944,192 @@ footer {
   }
 }
 
-/* USP's Section Styles */
-.usps-section {
+/* Modern USP Section Styles */
+.usps-section-modern {
   padding: 6rem 0;
-  background: var(--white);
+  background: #FDF7F4;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.usps-container {
+.usps-background-pattern {
+  display: none;
+}
+
+.usps-container-modern {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
+  padding: 0 4rem;
+  text-align: left;
 }
 
-/* Main Title */
-.usps-title {
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 400;
+/* Section Header */
+.usps-header {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.usps-subtitle {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-primary);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+  position: relative;
+  display: block;
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+.usps-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 3rem;
+  height: 1px;
+  background: var(--text-primary);
+}
+
+.usps-title-modern {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 4rem;
+  font-weight: 300;
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 0 0 4rem 0;
-  line-height: 1.2;
+  margin: 3rem 0 2rem 0;
+  line-height: 1.1;
+  text-align: left;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
 }
 
-/* Three Content Blocks Grid */
-.usps-grid {
+.usps-description {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin: 0;
+  text-align: left;
+  max-width: none;
+}
+
+/* Modern Grid */
+.usps-grid-modern {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 2.5rem;
+  margin-top: 5rem;
 }
 
-/* Individual Cards */
-.usps-card {
+/* Modern Cards */
+.usps-card-modern {
   text-align: left;
   padding: 2rem;
   background: var(--white);
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
 }
 
-.usps-card:hover {
+.usps-card-modern::before {
+  display: none;
+}
+
+.usps-card-modern:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Icons */
-.usps-icon {
+/* Individual Card Themes */
+.usps-card-immigration {
+  background: var(--white);
+}
+
+.usps-card-ip {
+  background: var(--white);
+}
+
+.usps-card-compliance {
+  background: var(--white);
+}
+
+.usps-card-inner {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  height: auto;
+  display: block;
+}
+
+/* Icon Container */
+.usps-icon-container {
   width: 60px;
   height: 60px;
   border-radius: 12px;
   margin-bottom: 1.5rem;
   display: block;
+  background: var(--light-yellow);
+  backdrop-filter: none;
+  border: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.usps-icon-yellow {
+.usps-card-immigration .usps-icon-container {
   background: var(--light-yellow);
 }
 
-.usps-icon-green {
+.usps-card-ip .usps-icon-container {
   background: var(--light-green);
 }
 
-.usps-icon-pink {
+.usps-card-compliance .usps-icon-container {
   background: #f8d7da;
 }
 
-/* Card Titles */
-.usps-card-title {
+.usps-card-modern:hover .usps-icon-container {
+  transform: none;
+  background: var(--light-yellow);
+}
+
+.usps-card-ip:hover .usps-icon-container {
+  background: var(--light-green);
+}
+
+.usps-card-compliance:hover .usps-icon-container {
+  background: #f8d7da;
+}
+
+.usps-icon-svg {
+  width: 30px;
+  height: 30px;
+  color: var(--text-primary);
+  filter: none;
+}
+
+/* Content */
+.usps-content {
+  flex: none;
+}
+
+.usps-card-title-modern {
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
@@ -1022,10 +1137,10 @@ footer {
   margin: 0 0 1rem 0;
   line-height: 1.3;
   text-transform: none;
+  text-shadow: none;
 }
 
-/* Card Descriptions */
-.usps-card-description {
+.usps-card-description-modern {
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1rem;
   font-weight: 300;
@@ -1035,78 +1150,114 @@ footer {
   opacity: 0.8;
 }
 
-/* Responsive Design for USP's Section */
+/* Accent Line */
+.usps-card-accent {
+  display: none;
+}
+
+/* Responsive Design for USP Section */
 @media (max-width: 768px) {
-  .usps-section {
+  .usps-section-modern {
     padding: 4rem 0;
   }
   
-  .usps-container {
-    padding: 0 1.5rem;
+  .usps-container-modern {
+    padding: 0 2rem;
   }
   
-  .usps-title {
-    font-size: 2rem;
+  .usps-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .usps-title-modern {
+    font-size: 3rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .usps-header {
     margin-bottom: 3rem;
   }
   
-  .usps-grid {
+  .usps-grid-modern {
     grid-template-columns: 1fr;
     gap: 2rem;
+    margin-top: 3rem;
   }
   
-  .usps-card {
+  .usps-card-modern {
     padding: 1.5rem;
   }
   
-  .usps-icon {
+  .usps-icon-container {
     width: 50px;
     height: 50px;
     margin-bottom: 1rem;
   }
   
-  .usps-card-title {
+  .usps-icon-svg {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .usps-card-title-modern {
     font-size: 1.2rem;
   }
   
-  .usps-card-description {
+  .usps-card-description-modern {
     font-size: 0.95rem;
+  }
+  
+  .usps-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
 }
 
 @media (max-width: 480px) {
-  .usps-section {
+  .usps-section-modern {
     padding: 3rem 0;
   }
   
-  .usps-container {
-    padding: 0 1rem;
+  .usps-container-modern {
+    padding: 0 1.5rem;
   }
   
-  .usps-title {
-    font-size: 1.8rem;
-    margin-bottom: 2.5rem;
+  .usps-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
   }
   
-  .usps-grid {
+  .usps-title-modern {
+    font-size: 2.5rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+  
+  .usps-grid-modern {
     gap: 1.5rem;
   }
   
-  .usps-card {
+  .usps-card-modern {
     padding: 1.25rem;
   }
   
-  .usps-icon {
+  .usps-icon-container {
     width: 45px;
     height: 45px;
   }
   
-  .usps-card-title {
+  .usps-icon-svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .usps-card-title-modern {
     font-size: 1.1rem;
   }
   
-  .usps-card-description {
+  .usps-card-description-modern {
     font-size: 0.9rem;
+    line-height: 1.6;
   }
 }
 
@@ -1209,27 +1360,31 @@ footer {
 /* Customer Testimonials Section Styles */
 .testimonials-section {
   padding: 6rem 0;
-  background: var(--white);
+  background: #FDF7F4;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .testimonials-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
+  padding: 0 4rem;
+  text-align: left;
 }
 
 /* Main Title */
 .testimonials-title {
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-  font-size: 56px;
-  font-weight: 400;
-  color: #333333;
-  text-transform: none;
-  letter-spacing: 0.05em;
-  margin: 0 0 4rem 0;
-  line-height: 1.2;
-  text-align: center;
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 3rem 0;
+  line-height: 1.1;
+  text-align: left;
 }
 
 /* Three Testimonial Cards Grid */
@@ -1248,8 +1403,8 @@ footer {
   padding: 2.5rem 2rem 2rem 2rem;
   text-align: center;
   position: relative;
-  border: 1px solid #E0F2F7;
-  box-shadow: 0px 4px 10px rgba(173, 216, 230, 0.2);
+  border: none;
+  box-shadow: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 360px;
@@ -1258,11 +1413,11 @@ footer {
 
 .testimonial-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 8px 20px rgba(173, 216, 230, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .testimonial-card:focus {
-  outline: 2px solid #4a7c59;
+  outline: 2px solid var(--text-primary);
   outline-offset: 2px;
 }
 
@@ -1287,10 +1442,10 @@ footer {
 
 /* Customer Name */
 .testimonial-name {
-  font-family: var(--font-poppins), 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #333333;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
   margin: 0 0 0.5rem 0;
   line-height: 1.3;
   text-align: center;
@@ -1298,13 +1453,14 @@ footer {
 
 /* Company/Affiliation */
 .testimonial-company {
-  font-family: var(--font-inter), 'Inter', 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: #6B7280;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-primary);
   margin: 0 0 1rem 0;
   line-height: 1.4;
   text-align: center;
+  opacity: 0.8;
 }
 
 /* Star Rating */
@@ -1318,7 +1474,7 @@ footer {
 .star-icon {
   width: 20px;
   height: 20px;
-  color: #FACC15;
+  color: var(--yellow-primary);
 }
 
 /* Divider */
@@ -1326,8 +1482,8 @@ footer {
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    #D1D5DB 0,
-    #D1D5DB 4px,
+    var(--text-primary) 0,
+    var(--text-primary) 4px,
     transparent 4px,
     transparent 8px
   );
@@ -1335,6 +1491,7 @@ footer {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0.3;
 }
 
 /* Testimonial Content */
@@ -1345,26 +1502,28 @@ footer {
 }
 
 .quote-mark {
-  font-family: var(--font-inter), 'Inter', 'Open Sans', sans-serif;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 64px;
   font-weight: 300;
-  color: #E5E7EB;
+  color: var(--text-primary);
   position: absolute;
   top: -1rem;
   left: -0.5rem;
   line-height: 1;
   z-index: 1;
+  opacity: 0.2;
 }
 
 .testimonial-text {
-  font-family: var(--font-inter), 'Inter', 'Open Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #333333;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-primary);
   line-height: 1.8;
   margin: 0;
   position: relative;
   z-index: 2;
+  opacity: 0.8;
 }
 
 /* Responsive Design for Testimonials Section */
@@ -1385,11 +1544,11 @@ footer {
   }
   
   .testimonials-container {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
   
   .testimonials-title {
-    font-size: 42px;
+    font-size: 3rem;
     margin-bottom: 3rem;
   }
   
@@ -1409,11 +1568,11 @@ footer {
   }
   
   .testimonial-name {
-    font-size: 18px;
+    font-size: 1.2rem;
   }
   
   .testimonial-company {
-    font-size: 13px;
+    font-size: 0.95rem;
   }
   
   .quote-mark {
@@ -1423,7 +1582,7 @@ footer {
   }
   
   .testimonial-text {
-    font-size: 15px;
+    font-size: 0.95rem;
   }
 }
 
@@ -1433,11 +1592,11 @@ footer {
   }
   
   .testimonials-container {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
   
   .testimonials-title {
-    font-size: 32px;
+    font-size: 2.5rem;
     margin-bottom: 2.5rem;
   }
   
@@ -1455,11 +1614,11 @@ footer {
   }
   
   .testimonial-name {
-    font-size: 16px;
+    font-size: 1.1rem;
   }
   
   .testimonial-company {
-    font-size: 12px;
+    font-size: 0.9rem;
   }
   
   .star-icon {
@@ -1474,6 +1633,99 @@ footer {
   }
   
   .testimonial-text {
-    font-size: 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Footer (Site) */
+.site-footer {
+  background: #001f3f;
+  color: #ffffff;
+  padding: 3rem 0;
+}
+
+.site-footer a {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.site-footer a:hover {
+  opacity: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.footer-heading {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+}
+
+.footer-text {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 9999px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Ensure FontAwesome icons have consistent size inside circular links */
+.social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 }

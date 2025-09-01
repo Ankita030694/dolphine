@@ -56,38 +56,70 @@ export default function Home() {
       </section>
 
       {/* USP's Section */}
-      <section className="usps-section">
-        <div className="usps-container">
-          {/* Main Title */}
-          <h2 className="usps-title">USP'S</h2>
+      <section className="usps-section-modern">
+        <div className="usps-background-pattern"></div>
+        <div className="usps-container-modern">
+          {/* Section Header */}
+          <div className="usps-header">
+            <span className="usps-subtitle">Why Choose Us</span>
+            <h2 className="usps-title-modern">Our Unique Strengths</h2>
+            <p className="usps-description">Discover what sets us apart in delivering exceptional legal services</p>
+          </div>
           
           {/* Three Content Blocks */}
-          <div className="usps-grid">
-            {/* Left Block */}
-            <div className="usps-card">
-              <div className="usps-icon usps-icon-yellow"></div>
-              <h3 className="usps-card-title">Immigration assistance</h3>
-              <p className="usps-card-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-              </p>
+          <div className="usps-grid-modern">
+            {/* Card 1 - Immigration */}
+            <div className="usps-card-modern usps-card-immigration">
+              <div className="usps-card-inner">
+                <div className="usps-icon-container">
+                  <svg className="usps-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L13.09 8.26L22 9L16 14L18 22L12 19L6 22L8 14L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="usps-content">
+                  <h3 className="usps-card-title-modern">Immigration Assistance</h3>
+                  <p className="usps-card-description-modern">
+                    Expert guidance through complex immigration processes with personalized support and proven success rates.
+                  </p>
+                  <div className="usps-card-accent"></div>
+                </div>
+              </div>
             </div>
             
-            {/* Middle Block */}
-            <div className="usps-card">
-              <div className="usps-icon usps-icon-green"></div>
-              <h3 className="usps-card-title">Intellectual property</h3>
-              <p className="usps-card-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent libero.
-              </p>
+            {/* Card 2 - IP */}
+            <div className="usps-card-modern usps-card-ip">
+              <div className="usps-card-inner">
+                <div className="usps-icon-container">
+                  <svg className="usps-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="usps-content">
+                  <h3 className="usps-card-title-modern">Intellectual Property</h3>
+                  <p className="usps-card-description-modern">
+                    Comprehensive IP protection strategies to safeguard your innovations and creative assets worldwide.
+                  </p>
+                  <div className="usps-card-accent"></div>
+                </div>
+              </div>
             </div>
             
-            {/* Right Block */}
-            <div className="usps-card">
-              <div className="usps-icon usps-icon-pink"></div>
-              <h3 className="usps-card-title">Compliance lawyer</h3>
-              <p className="usps-card-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus ante dapibus diam.
-              </p>
+            {/* Card 3 - Compliance */}
+            <div className="usps-card-modern usps-card-compliance">
+              <div className="usps-card-inner">
+                <div className="usps-icon-container">
+                  <svg className="usps-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12L11 14L15 10M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+                <div className="usps-content">
+                  <h3 className="usps-card-title-modern">Compliance Excellence</h3>
+                  <p className="usps-card-description-modern">
+                    Stay ahead of regulatory requirements with our proactive compliance solutions and risk management.
+                  </p>
+                  <div className="usps-card-accent"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
