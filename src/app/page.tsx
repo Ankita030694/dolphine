@@ -1,4 +1,262 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
+
+function PartnerStrip() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <section 
+      className="partner-strip"
+      style={{
+        background: '#1C3B4E',
+        color: '#FFECDB',
+        padding: isExpanded ? '3rem 2rem' : '1.5rem 2rem',
+        transition: 'padding 0.3s ease',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      <div className="partner-strip-container" style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
+        {!isExpanded ? (
+          <div 
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              cursor: 'pointer',
+              minHeight: '60px',
+            }}
+            onClick={() => setIsExpanded(true)}
+          >
+            <h3 
+              style={{
+                fontSize: '2.5rem',
+                fontWeight: '500',
+                color: '#FFECDB',
+                margin: 0,
+                height: 'fit-content',
+                fontFamily: 'Playfair Display',
+              }}
+            >
+              Partner with us
+            </h3>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(true);
+              }}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: '#FFECDB',
+                cursor: 'pointer',
+                fontSize: '2rem',
+                padding: '0.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'transform 0.3s ease',
+              }}
+              aria-label="Expand partner section"
+            >
+              <svg 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M12 5V19M5 12H19" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        ) : (
+          <>
+            <button
+              onClick={() => setIsExpanded(false)}
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '2rem',
+                background: 'transparent',
+                border: 'none',
+                color: '#FFECDB',
+                cursor: 'pointer',
+                fontSize: '1.5rem',
+                padding: '0.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                zIndex: 10,
+              }}
+              aria-label="Collapse partner section"
+            >
+              <svg 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M5 12H19" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <div 
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                gap: '3rem',
+                marginTop: '1rem',
+              }}
+            >
+              <div style={{ flex: '1' }}>
+                <h2 
+                  style={{
+                    fontSize: '3rem',
+                    fontWeight: '500',
+                    color: '#FFECDB',
+                    marginBottom: '1.5rem',
+                    marginTop: 0,
+                  }}
+                >
+                  Partner with us
+                </h2>
+                <p 
+                  style={{
+                    fontSize: '1.1rem',
+                    lineHeight: '1.6',
+                    color: '#FFECDB',
+                    margin: 0,
+                  }}
+                >
+                  Join the Dmart legacy: Become a House of Dolphin franchise partner and bring premium design to your city.
+                </p>
+              </div>
+              <div style={{ flex: '1' }}>
+                <form 
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // Handle form submission here
+                  }}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem',
+                  }}
+                >
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    required
+                    style={{
+                      padding: '0.75rem 0',
+                      border: 'none',
+                      borderBottom: '2px solid #FFECDB',
+                      color: '#FFECDB',
+                      fontSize: '1rem',
+                      fontFamily: 'Poppins',
+                      outline: 'none',
+                    }}
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    required
+                    style={{
+                      padding: '0.75rem 0',
+                      border: 'none',
+                      borderBottom: '2px solid #FFECDB',
+                      color: '#FFECDB',
+                      fontSize: '1rem',
+                      fontFamily: 'Poppins',
+                      outline: 'none',
+                    }}
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    required
+                    style={{
+                      padding: '0.75rem 0',
+                      border: 'none',
+                      borderBottom: '2px solid #FFECDB',
+                      color: '#FFECDB',
+                      fontSize: '1rem',
+                      fontFamily: 'Poppins',
+                      outline: 'none',
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="City"
+                    required
+                    style={{
+                      padding: '0.75rem 0',
+                      border: 'none',
+                      borderBottom: '2px solid #FFECDB',
+                      color: '#FFECDB',
+                      fontSize: '1rem',
+                      fontFamily: 'Poppins',
+                      outline: 'none',
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Business type"
+                    required
+                    style={{
+                      padding: '0.75rem 0',
+                      border: 'none',
+                      borderBottom: '2px solid #FFECDB',  
+                      color: '#FFECDB',
+                      fontSize: '1rem',
+                      fontFamily: 'Poppins',
+                      outline: 'none',
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    style={{
+                      display: 'flex',
+                      padding: '14px 68px',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      gap: '10px',
+                      borderRadius: '151px',
+                      border: '3px solid #FFECDB',
+                      color: '#FFECDB',
+                      fontSize: '1.2rem',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      marginTop: '0.5rem',
+                    }}
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -7,7 +265,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="header-background">
           <Image
-            src="/herobg.jpeg"
+            src="/img2.png"
             alt="Dolphine Hero Background"
             fill
             priority
@@ -20,12 +278,97 @@ export default function Home() {
         <header className="header-content">
           {/* Section 1: Primary Brand Mark */}
           <div className="brand-mark">
-            <h1 className="brand-name">Dolphine</h1>
+            <h1
+              className="brand-name"
+              style={{
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily: '"Playfair Display"',
+                fontSize: "50px",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: "50px",
+              }}
+            >
+              House Of Dolphine
+            </h1>
           </div>
 
           {/* Section 2: Primary Navigation (Hotels & Resorts) */}
-          <nav className="hotels-nav">
-          <ul className="hotels-list"> <li><a href="#Dolphine-new-delhi">Gifts by D'Mart</a></li> <li><a href="#Dolphine-house-delhi">Herbgen</a></li> <li><a href="#Dolphine-ganges-rishikesh">D'Mart Exclusif</a></li> </ul>
+          <nav
+            className="hotels-nav"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "50px",
+              flexWrap: "wrap",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+              }}
+            >
+              Limited Editions
+            </div>
+            <div
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+              }}
+            >
+              Decorative &amp; Arts
+            </div>
+            <div
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+              }}
+            >
+              Decorative &amp; Functional Gifts
+            </div>
+            <div
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+              }}
+            >
+              Furniture
+            </div>
           </nav>
         </header>
       </div>
@@ -37,261 +380,249 @@ export default function Home() {
           <h3 className="about-title">about</h3>
           
           {/* Section 2: Brand Name Heading */}
-          <h2 className="about-brand-name">Dolphine</h2>
+          <h2 className="about-brand-name">House Of Dolphine</h2>
           
           {/* Section 3: Body Text - Two Column Layout */}
           <div className="about-content">
             <div className="about-column">
               <p className="about-paragraph">
-                Dolphine lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                Welcome to the House of Dolphin, where every item tells a story of aspiration, artistry, and enduring quality. As a premier Home & Lifestyle brand, we embody our tagline: Dream - Desire - Design. We believe your living space should be a canvas for your personal journey, inspiring you daily.
+                Born from the legacy of Dmart—our trusted mother brand—the House of Dolphin was established to curate exceptional design across every facet of the home. We are not just a retailer; we are a destination for those who seek to enrich their lives with beauty and functionality. From our Limited Editions and bespoke Furniture to our exquisite Decorative Arts and thoughtful Gifts, we empower you to design the life you've always desired.
               </p>
             </div>
             <div className="about-column">
+              <h3 className="about-subheading">Our Unique Promise</h3>
               <p className="about-paragraph">
-                In India the existing portfolio includes Dolphine New Delhi, Dolphine House New Delhi and The Dolphine Ganges Rishikesh. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                We stand apart through our commitment to design integrity and craftsmanship: FROM THE DESIGNER'S HEART: Each piece is born from a deep passion for aesthetics and is meticulously developed by visionary designers. You receive originality, not imitation.
+                THE TEAM: Our global network of artisans, craftspeople, and experts ensures that every product you bring home meets the highest standards of quality, ethical sourcing, and artistic execution.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* USP's Section */}
-      <section className="usps-section-clean">
-        <div className="usps-container-clean">
-          {/* Section Header */}
-          <div className="usps-header-clean">
-            <h2 className="usps-title-clean">Unique Selling Point</h2>
-            <p className="usps-description-clean">
-              A unique selling proposition (USP) refers to the unique benefit exhibited by a company, service, product or brand that enables it to stand out from competitors.
+      {/* Partner with Us Expandable Strip */}
+      <PartnerStrip />
+
+      {/* Logo Strip Section */}
+      <section 
+        style={{
+          backgroundColor: '#FFECDB',
+          padding: '2rem 0',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <div 
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '3rem',
+            maxWidth: '1200px',
+            width: '100%',
+            flexWrap: 'wrap',
+            paddingTop: '2rem',
+            paddingBottom: '2rem',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+            <Image 
+              src="/logo1.png" 
+              alt="Logo 1" 
+              width={80} 
+              height={80} 
+              style={{ objectFit: 'contain' }}
+            />
+            <p style={{ 
+              margin: 0, 
+              color: '#1C3B4E',
+              textAlign: 'center',
+              fontFamily: 'Poppins',
+              fontSize: '14px',
+              fontStyle: 'normal',
+              fontWeight: 300,
+              lineHeight: '22px',
+              textTransform: 'uppercase'
+            }}>
+              Silver Plating Gurantee
             </p>
-            <button className="usps-cta-button">GET STARTED</button>
           </div>
-          
-          {/* Three Content Blocks */}
-          <div className="usps-grid-clean">
-            {/* Card 1 - Orange Background */}
-            <div className="usps-card-clean usps-card-orange">
-              <div className="usps-icon-clean">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 15l-3-3h6l-3 3z" fill="currentColor"/>
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
-                </svg>
-              </div>
-              <h3 className="usps-card-title-clean">Automate Ecommerce Operations</h3>
-              <p className="usps-card-description-clean" style={{color: "#666"}}>
-                Sync Quick Books, Shopify, Amazon, eBay, and more for a complete picture of your business performance
-              </p>
-              <a href="#" className="usps-card-link">
-                Learn more
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
-                </svg>
-              </a>
-            </div>
-            
-            {/* Card 2 - White Background */}
-            <div className="usps-card-clean usps-card-white">
-              <div className="usps-icon-clean usps-icon-orange">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="currentColor"/>
-                </svg>
-              </div>
-              <h3 className="usps-card-title-clean">Accurate Accounting Automation</h3>
-              <p className="usps-card-description-clean">
-                Save time on data entry, improve productivity, and ensure keep accurate financials by connecting Shopify to Quikbooks.
-              </p>
-              <a href="#" className="usps-card-link usps-link-orange">
-                Learn more
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
-                </svg>
-              </a>
-            </div>
-            
-            {/* Card 3 - White Background */}
-            <div className="usps-card-clean usps-card-white">
-              <div className="usps-icon-clean usps-icon-orange">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor"/>
-                </svg>
-              </div>
-              <h3 className="usps-card-title-clean">Order Fulfilment Automation</h3>
-              <p className="usps-card-description-clean">
-                Increase customer satisfaction process orders faster, prevent stock-outs, and easily access historical records.
-              </p>
-              <a href="#" className="usps-card-link usps-link-orange">
-                Learn more
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
-                </svg>
-              </a>
-            </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+            <Image 
+              src="/logo2.png" 
+              alt="Logo 2" 
+              width={80} 
+              height={80} 
+              style={{ objectFit: 'contain' }}
+            />
+            <p style={{ 
+              margin: 0, 
+              color: '#1C3B4E',
+              textAlign: 'center',
+              fontFamily: 'Poppins',
+              fontSize: '14px',
+              fontStyle: 'normal',
+              fontWeight: 300,
+              lineHeight: '22px',
+              textTransform: 'uppercase'
+            }}>
+              Authenticity Enclosieed
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+            <Image 
+              src="/logo3.png" 
+              alt="Logo 3" 
+              width={80} 
+              height={80} 
+              style={{ objectFit: 'contain' }}
+            />
+            <p style={{ 
+              margin: 0, 
+              color: '#1C3B4E',
+              textAlign: 'center',
+              fontFamily: 'Poppins',
+              fontSize: '14px',
+              fontStyle: 'normal',
+              fontWeight: 300,
+              lineHeight: '22px',
+              textTransform: 'uppercase'
+            }}>
+              Certificate of origin
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+            <Image 
+              src="/logo4.png" 
+              alt="Logo 4" 
+              width={80} 
+              height={80} 
+              style={{ objectFit: 'contain' }}
+            />
+            <p style={{ 
+              margin: 0, 
+              color: '#1C3B4E',
+              textAlign: 'center',
+              fontFamily: 'Poppins',
+                fontSize: '14px',
+              fontStyle: 'normal',
+              fontWeight: 300,
+              lineHeight: '22px',
+              textTransform: 'uppercase'
+            }}>
+              Handcrafted
+            </p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+            <Image 
+              src="/logo5.png" 
+              alt="Logo 5" 
+              width={80} 
+              height={80} 
+              style={{ objectFit: 'contain' }}
+            />
+            <p style={{ 
+              margin: 0, 
+              color: '#1C3B4E',
+              textAlign: 'center',
+              fontFamily: 'Poppins',
+              fontSize: '14px',
+              fontStyle: 'normal',
+              fontWeight: 300,
+              lineHeight: '22px',
+              textTransform: 'uppercase'
+            }}>
+              Official Warranty Included
+            </p>
           </div>
         </div>
       </section>
 
       {/* Founders Note Section */}
-      <section className="founders-note-section">
+      <section className="founders-note-section" style={{backgroundColor: "#FFECDB", marginTop: '-10rem'}}>
         <div className="founders-note-container">
           <div className="founders-note-content">
             {/* Left side - Image placeholder */}
-            <div className="founders-note-image">
+            <div className="founders-note-image" style={{marginLeft: '-3.5rem'}}>
               <div className="founders-image-placeholder">
-                <span>Founder Image</span>
+                <img src="/img1.png" alt="Founder Image" width={320} height={300} />
+
               </div>
             </div>
             
             {/* Right side - Text content */}
             <div className="founders-note-text">
-              <h2 className="founders-note-title" style={{textAlign: "left", fontSize: "2rem", fontWeight: "300", color: "#333", marginBottom: "2rem"}}>A Vision for Growth</h2>
+              <h2 className="founders-note-title" style={{textAlign: "left", fontSize: "2rem", fontWeight: "300", color: "#333", marginBottom: "2rem"}}>A Note From Our Founders</h2>
               <div className="founders-note-quote">
                 <p className="founders-quote-text">
-                  "When I started my journey, I envisioned creating not just a business, but a family of brands that would touch people's lives in meaningful ways. Today, I'm proud to see how our brands have evolved and the impact they've made.
+                  Welcome to the House of Dolphin.
                 </p>
                 <p className="founders-quote-text">
-                  Our success is built on understanding customer needs and delivering exceptional quality. We're now extending this opportunity to entrepreneurs who share our passion through our franchise program. Join us in this exciting journey of growth and success."
+                  We founded this brand on a simple, yet profound belief: that our homes should be the truest reflection of who we are. Every piece you find here—from a bold Limited Edition art piece to an enduring item of Furniture—is chosen to inspire you to Dream, Desire, and Design a life you love.
+                </p>
+                <p className="founders-quote-text">
+                  We are driven by the enduring legacy of Dmart and committed to merging quality craftsmanship with visionary aesthetics. Thank you for inviting our designs into your home. We look forward to being a part of your story.
                 </p>
               </div>
               <div className="founders-note-signature">
-                <h3 className="founders-name">Rajesh Kumar</h3>
-                <p className="founders-title">Founder & CEO</p>
+                <p className="founders-title">Founders, House of Dolphin</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="cta-container">
-          <h2 className="cta-title">Ready to Experience Excellence</h2>
-          <button className="cta-button">Lorem ipsum dolor</button>
-        </div>
-      </section>
+    
 
-      {/* Customer Testimonials Section */}
-      <section className="testimonials-section" aria-labelledby="testimonials-title">
-        <div className="testimonials-container">
-          {/* Main Title */}
-          <h2 id="testimonials-title" className="testimonials-title" style={{textAlign: "center", fontSize: "2.5rem", fontWeight: "300", color: "#333", marginBottom: "2rem"}}>What our customers says</h2>
-          
-          {/* Three Testimonial Cards */}
-          <div className="testimonials-grid">
-            {/* Card 1 */}
-            <article className="testimonial-card" tabIndex ={0}>
-              <div className="testimonial-avatar">
-                                 <img 
-                   src="/avatar-1.jpg" 
-                   alt="Lorem ipsum avatar"
-                   className="avatar-image"
-                   width={92}
-                   height={92}
-                 />
-              </div>
-              <h3 className="testimonial-name">Yogesh Arora</h3>
-              <p className="testimonial-company">Lorem ipsum dolor sit amet</p>
-              <div className="testimonial-rating" role="img" aria-label="5 out of 5 stars">
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              </div>
-              <div className="testimonial-divider"></div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+      {/* Hall of Fame: Customer Testimonials Section */}
+      <section className="hall-of-fame-section" style={{marginTop: '-10rem'}}>
+        <div className="hall-of-fame-container">
+          <h2 className="hall-of-fame-title">
+            Hall of Fame: <br /> Stories from Our Customers
+          </h2>
+
+          <div className="hall-of-fame-content">
+            <div className="testimonials-carousel">
+              <article className="testimonial-card-dark">
+                <h3 className="testimonial-card-heading">
+                  5/5 Stars | &quot;The Perfect Statement Piece&quot;
+                </h3>
+                <p className="testimonial-card-text">
+                  I purchased a piece from the Limited Editions line, and it completely transformed my living room. The craftsmanship is flawless—it truly feels like a work of art. The quality is exceptional, and the delivery was handled with such care.&quot; <span className="testimonial-author">— Anika P., Mumbai</span>
                 </p>
-              </div>
-            </article>
+              </article>
+
+              <article className="testimonial-card-dark">
+                <h3 className="testimonial-card-heading">
+                  5/5 Stars | &quot;Furniture Built to Last&quot;
+                </h3>
+                <p className="testimonial-card-text">
+                  We finally upgraded our dining set with a piece from woodmart.in. It is stunning, robust, and exactly as described. The customer service team was helpful through the entire process, making our investment feel absolutely worthwhile.&quot; <span className="testimonial-author">— Rajesh K., Bangalore</span>
+                </p>
+              </article>
+
+              <article className="testimonial-card-dark">
+                <h3 className="testimonial-card-heading">
+                  4/5 Stars | &quot;Thoughtful and Unique Gifts&quot;
+                </h3>
+                <p className="testimonial-card-text">
+                  &quot;I always turn to giftsbydmart.com when I need something special. The decorative items are unique and feel much more personal than anything else on the market. They never fail to impress!&quot; <span className="testimonial-author">— Meera S., Delhi</span>
+                </p>
+              </article>
+
+              <article className="testimonial-card-dark">
+                <h3 className="testimonial-card-heading">
+                  5/5 Stars | &quot;Truly a Home Design Partner&quot;
+                </h3>
+                <p className="testimonial-card-text">
+                  &quot;From selecting the initial art print to choosing the final decor accents, the quality across all the House of Dolphin sub-brands is consistent. They truly embody the &apos;Dream - Desire - Design&apos; tagline. Highly recommend.&quot; <span className="testimonial-author">— Daniel T., Chennai</span>
+                </p>
+              </article>
+            </div>
+
             
-            {/* Card 2 */}
-            <article className="testimonial-card" tabIndex  ={0}>
-              <div className="testimonial-avatar">
-                                 <img 
-                   src="/avatar-2.jpg" 
-                   alt="Lorem ipsum avatar"
-                   className="avatar-image"
-                   width={92}
-                   height={92}
-                 />
-              </div>
-              <h3 className="testimonial-name">Yogesh Arora</h3>
-              <p className="testimonial-company">Lorem ipsum dolor sit amet</p>
-              <div className="testimonial-rating" role="img" aria-label="5 out of 5 stars">
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              </div>
-              <div className="testimonial-divider"></div>
-              <div className="testimonial-content">
-                <span className="quote-mark" aria-hidden="true">"</span>
-                <p className="testimonial-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                </p>
-              </div>
-            </article>
-            
-            {/* Card 3 */}
-            <article className="testimonial-card" tabIndex  ={0}>
-              <div className="testimonial-avatar">
-                                 <img 
-                   src="/avatar-3.jpg" 
-                   alt="Lorem ipsum avatar"
-                   className="avatar-image"
-                   width={92}
-                   height={92}
-                 />
-              </div>
-              <h3 className="testimonial-name">Yogesh Arora</h3>
-              <p className="testimonial-company">Lorem ipsum dolor sit amet</p>
-              <div className="testimonial-rating" role="img" aria-label="5 out of 5 stars">
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <svg className="star-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              </div>
-              <div className="testimonial-divider"></div>
-              <div className="testimonial-content">
-                <span className="quote-mark" aria-hidden="true">"</span>
-                <p className="testimonial-text">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
-                </p>
-              </div>
-            </article>
           </div>
         </div>
       </section>
