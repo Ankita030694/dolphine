@@ -3,6 +3,207 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+function MobileNav() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      {/* Blurred Background Overlay */}
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            background: 'rgba(0, 0, 0, 0.5)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            zIndex: 999,
+            transition: 'opacity 0.3s ease',
+          }}
+        />
+      )}
+
+      {/* Hamburger Button - Mobile Only */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          position: 'fixed',
+          top: '1.5rem',
+          right: '1.5rem',
+          zIndex: 1001,
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '6px',
+          padding: '0.5rem',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        className="mobile-hamburger"
+        aria-label="Toggle menu"
+      >
+        {!isOpen ? (
+          <>
+            <span
+              style={{
+                width: '28px',
+                height: '3px',
+                background: '#FFECDB',
+                transition: 'all 0.3s ease',
+              }}
+            />
+            <span
+              style={{
+                width: '28px',
+                height: '3px',
+                background: '#FFECDB',
+                transition: 'all 0.3s ease',
+              }}
+            />
+            <span
+              style={{
+                width: '28px',
+                height: '3px',
+                background: '#FFECDB',
+                transition: 'all 0.3s ease',
+              }}
+            />
+          </>
+        ) : (
+          <span
+            style={{
+              color: '#FFFFFF',
+              fontSize: '2rem',
+              fontWeight: 300,
+              lineHeight: 1,
+            }}
+          >
+            ×
+          </span>
+        )}
+      </button>
+
+      {/* Mobile Menu Sidebar */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          right: 0,
+          width: isOpen ? '70%' : '0',
+          height: '100vh',
+          background: '#1C3B4E',
+          zIndex: 1000,
+          transition: 'width 0.3s ease',
+          overflow: 'hidden',
+          borderTopLeftRadius: '24px',
+          borderBottomLeftRadius: '24px',
+          boxShadow: isOpen ? '-4px 0 20px rgba(0, 0, 0, 0.3)' : 'none',
+        }}
+        className="mobile-nav-overlay"
+      >
+        <nav
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%',
+            padding: '4rem 2rem 2rem 2rem',
+            opacity: isOpen ? 1 : 0,
+            transition: 'opacity 0.2s ease 0.1s',
+            width: '100%',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {/* Close Button */}
+
+
+            {/* Navigation Links */}
+            <a
+              href="https://godsbydmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              style={{
+                color: '#FFECDB',
+                textDecoration: 'none',
+                fontSize: '1.25rem',
+                fontWeight: 400,
+                fontFamily: 'Poppins, sans-serif',
+                padding: '0.75rem 0',
+                transition: 'opacity 0.3s ease',
+              }}
+            >
+              Limited Editions
+            </a>
+            <a
+              href="https://www.giftsbydmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              style={{
+                color: '#FFECDB',
+                textDecoration: 'none',
+                fontSize: '1.25rem',
+                fontWeight: 400,
+                fontFamily: 'Poppins, sans-serif',
+                padding: '0.75rem 0',
+                transition: 'opacity 0.3s ease',
+              }}
+            >
+              Decorative &amp; Arts
+            </a>
+            <a
+              href="https://www.decorbydmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              style={{
+                color: '#FFECDB',
+                textDecoration: 'none',
+                fontSize: '1.25rem',
+                fontWeight: 400,
+                fontFamily: 'Poppins, sans-serif',
+                padding: '0.75rem 0',
+                transition: 'opacity 0.3s ease',
+              }}
+            >
+              Decorative
+            </a>
+          </div>
+
+          {/* House of Dolphin Text at Bottom */}
+          <div
+            style={{
+              marginTop: 'auto',
+              paddingTop: '2rem',
+            }}
+          >
+            <h2
+              style={{
+                color: '#FFECDB',
+                fontFamily: '"Playfair Display", serif',
+                fontSize: '1.5rem',
+                fontStyle: 'italic',
+                fontWeight: 400,
+                margin: 0,
+                textAlign: 'left',
+              }}
+            >
+              House of Dolphin
+            </h2>
+          </div>
+        </nav>
+      </div>
+    </>
+  );
+}
+
 function PartnerStrip() {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -21,6 +222,7 @@ function PartnerStrip() {
       <div className="partner-strip-container" style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
         {!isExpanded ? (
           <div 
+            className="partner-strip-collapsed"
             style={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -31,6 +233,7 @@ function PartnerStrip() {
             onClick={() => setIsExpanded(true)}
           >
             <h3 
+              className="partner-strip-title-collapsed"
               style={{
                 fontSize: '2.5rem',
                 fontWeight: '500',
@@ -47,6 +250,7 @@ function PartnerStrip() {
                 e.stopPropagation();
                 setIsExpanded(true);
               }}
+              className="partner-strip-expand-btn"
               style={{
                 background: 'transparent',
                 border: 'none',
@@ -82,6 +286,7 @@ function PartnerStrip() {
           <>
             <button
               onClick={() => setIsExpanded(false)}
+              className="partner-strip-close-btn"
               style={{
                 position: 'absolute',
                 top: '1rem',
@@ -116,6 +321,7 @@ function PartnerStrip() {
               </svg>
             </button>
             <div 
+              className="partner-strip-expanded"
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -124,8 +330,9 @@ function PartnerStrip() {
                 marginTop: '1rem',
               }}
             >
-              <div style={{ flex: '1' }}>
+              <div className="partner-strip-content" style={{ flex: '1' }}>
                 <h2 
+                  className="partner-strip-title-expanded"
                   style={{
                     fontSize: '3rem',
                     fontWeight: '500',
@@ -137,6 +344,7 @@ function PartnerStrip() {
                   Partner with us
                 </h2>
                 <p 
+                  className="partner-strip-description"
                   style={{
                     fontSize: '1.1rem',
                     lineHeight: '1.6',
@@ -147,8 +355,9 @@ function PartnerStrip() {
                   Join the Dmart legacy: Become a House of Dolphin franchise partner and bring premium design to your city.
                 </p>
               </div>
-              <div style={{ flex: '1' }}>
+              <div className="partner-strip-form-wrapper" style={{ flex: '1' }}>
                 <form 
+                  className="partner-strip-form"
                   onSubmit={(e) => {
                     e.preventDefault();
                     // Handle form submission here
@@ -163,6 +372,7 @@ function PartnerStrip() {
                     type="text"
                     placeholder="Name"
                     required
+                    className="partner-strip-input"
                     style={{
                       padding: '0.75rem 0',
                       border: 'none',
@@ -177,6 +387,7 @@ function PartnerStrip() {
                     type="email"
                     placeholder="Email"
                     required
+                    className="partner-strip-input"
                     style={{
                       padding: '0.75rem 0',
                       border: 'none',
@@ -191,6 +402,7 @@ function PartnerStrip() {
                     type="tel"
                     placeholder="Phone"
                     required
+                    className="partner-strip-input"
                     style={{
                       padding: '0.75rem 0',
                       border: 'none',
@@ -205,6 +417,7 @@ function PartnerStrip() {
                     type="text"
                     placeholder="City"
                     required
+                    className="partner-strip-input"
                     style={{
                       padding: '0.75rem 0',
                       border: 'none',
@@ -219,6 +432,7 @@ function PartnerStrip() {
                     type="text"
                     placeholder="Business type"
                     required
+                    className="partner-strip-input"
                     style={{
                       padding: '0.75rem 0',
                       border: 'none',
@@ -231,6 +445,7 @@ function PartnerStrip() {
                   />
                   <button
                     type="submit"
+                    className="partner-strip-submit-btn"
                     style={{
                       display: 'flex',
                       padding: '14px 68px',
@@ -261,6 +476,9 @@ function PartnerStrip() {
 export default function Home() {
   return (
     <div>
+      {/* Mobile Navigation */}
+      <MobileNav />
+      
       <div className="roseate-header">
         {/* Background Image */}
         <div className="header-background">
@@ -294,9 +512,9 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Section 2: Primary Navigation (Hotels & Resorts) */}
+          {/* Section 2: Primary Navigation (Hotels & Resorts) - Desktop Only */}
           <nav
-            className="hotels-nav"
+            className="hotels-nav desktop-nav"
             style={{
               display: "flex",
               alignItems: "center",
@@ -305,7 +523,11 @@ export default function Home() {
               flexWrap: "wrap",
             }}
           >
-            <div
+
+            <a
+              href="https://godsbydmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: "flex",
                 padding: "15px 40px",
@@ -317,11 +539,16 @@ export default function Home() {
                 color: "#fff",
                 fontWeight: 500,
                 fontSize: "18px",
+                textDecoration: "none",
               }}
             >
               Limited Editions
-            </div>
-            <div
+            </a>
+
+            <a
+              href="https://www.giftsbydmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: "flex",
                 padding: "15px 40px",
@@ -333,10 +560,17 @@ export default function Home() {
                 color: "#fff",
                 fontWeight: 500,
                 fontSize: "18px",
+                textDecoration: "none",
               }}
             >
               Decorative &amp; Arts
-            </div>
+            </a>
+            <a
+              href="https://www.decorbydmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              
+            >
             <div
               style={{
                 display: "flex",
@@ -351,24 +585,10 @@ export default function Home() {
                 fontSize: "18px",
               }}
             >
-              Decorative &amp; Functional Gifts
+              Decorative
             </div>
-            <div
-              style={{
-                display: "flex",
-                padding: "15px 40px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-                borderRadius: "9px",
-                background: "rgba(28, 59, 78, 0.60)",
-                color: "#fff",
-                fontWeight: 500,
-                fontSize: "18px",
-              }}
-            >
-              Furniture
-            </div>
+            </a>
+           
           </nav>
         </header>
       </div>
@@ -386,15 +606,19 @@ export default function Home() {
           <div className="about-content">
             <div className="about-column">
               <p className="about-paragraph">
-                Welcome to the House of Dolphin, where every item tells a story of aspiration, artistry, and enduring quality. As a premier Home & Lifestyle brand, we embody our tagline: Dream - Desire - Design. We believe your living space should be a canvas for your personal journey, inspiring you daily.
-                Born from the legacy of Dmart—our trusted mother brand—the House of Dolphin was established to curate exceptional design across every facet of the home. We are not just a retailer; we are a destination for those who seek to enrich their lives with beauty and functionality. From our Limited Editions and bespoke Furniture to our exquisite Decorative Arts and thoughtful Gifts, we empower you to design the life you've always desired.
+                Welcome to Dmart Exclusif – your trusted destination for luxury spiritual and lifestyle products. We offer a thoughtfully curated collection that blends traditional craftsmanship with modern elegance, featuring handcrafted god idols, premium home décor, festive accessories, and exclusive gifting solutions.
+              </p>
+              <p className="about-paragraph">
+                Each piece is chosen for its cultural significance, artisanal value, and lasting beauty. Whether you’re enhancing a sacred space or marking a special occasion, Dmart Exclusif ensures that divinity and design seamlessly enrich your everyday life.
               </p>
             </div>
             <div className="about-column">
-              <h3 className="about-subheading">Our Unique Promise</h3>
+              <h3 className="about-subheading">Our Heritage & Commitment</h3>
               <p className="about-paragraph">
-                We stand apart through our commitment to design integrity and craftsmanship: FROM THE DESIGNER'S HEART: Each piece is born from a deep passion for aesthetics and is meticulously developed by visionary designers. You receive originality, not imitation.
-                THE TEAM: Our global network of artisans, craftspeople, and experts ensures that every product you bring home meets the highest standards of quality, ethical sourcing, and artistic execution.
+                Rooted in India’s rich heritage and inspired by timeless traditions, Dmart Exclusif is dedicated to authenticity, quality, and customer delight. Our commitment is reflected in our handpicked selection and thoughtful service. 
+              </p>
+              <p className="about-paragraph">
+                We strive to deliver an unparalleled online experience — from effortless browsing to trusted delivery. Join us in discovering the art of meaningful living, one exquisite piece at a time.
               </p>
             </div>
           </div>
@@ -406,6 +630,7 @@ export default function Home() {
 
       {/* Logo Strip Section */}
       <section 
+        className="logo-strip-section"
         style={{
           backgroundColor: '#FFECDB',
           padding: '2rem 0',
@@ -415,6 +640,7 @@ export default function Home() {
         }}
       >
         <div 
+          className="logo-strip-container"
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -427,7 +653,7 @@ export default function Home() {
             paddingBottom: '2rem',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          <div className="logo-strip-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
             <Image 
               src="/logo1.png" 
               alt="Logo 1" 
@@ -449,7 +675,7 @@ export default function Home() {
               Silver Plating Gurantee
             </p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          <div className="logo-strip-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
             <Image 
               src="/logo2.png" 
               alt="Logo 2" 
@@ -471,7 +697,7 @@ export default function Home() {
               Authenticity Enclosieed
             </p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          <div className="logo-strip-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
             <Image 
               src="/logo3.png" 
               alt="Logo 3" 
@@ -493,7 +719,7 @@ export default function Home() {
               Certificate of origin
             </p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          <div className="logo-strip-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
             <Image 
               src="/logo4.png" 
               alt="Logo 4" 
@@ -515,7 +741,7 @@ export default function Home() {
               Handcrafted
             </p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          <div className="logo-strip-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
             <Image 
               src="/logo5.png" 
               alt="Logo 5" 
@@ -547,23 +773,34 @@ export default function Home() {
             {/* Left side - Image placeholder */}
             <div className="founders-note-image" style={{marginLeft: '-3.5rem'}}>
               <div className="founders-image-placeholder">
-                <img src="/img1.png" alt="Founder Image" width={320} height={300} />
+                <img src="/img1.png" alt="Founder Image" width={800} height={800} style={{maxWidth: '120%', maxHeight: '120%'}} />
 
               </div>
             </div>
             
             {/* Right side - Text content */}
-            <div className="founders-note-text">
-              <h2 className="founders-note-title" style={{textAlign: "left", fontSize: "2rem", fontWeight: "300", color: "#333", marginBottom: "2rem"}}>A Note From Our Founders</h2>
+            <div className="founders-note-text" style={{marginTop: '8rem'}}>
+              <h2
+                className="founders-note-title"
+                style={{
+                  textAlign: "left",
+                  fontSize: "2rem",
+                  fontWeight: "300",
+                  color: "#333",
+                  marginBottom: "2rem",
+                }}
+              >
+                Founder’s Note
+              </h2>
               <div className="founders-note-quote">
                 <p className="founders-quote-text">
-                  Welcome to the House of Dolphin.
+                  Welcome to a realm where artistic luxury meets refined living. Our destination is dedicated to helping you discover, experience, and acquire the very finest in international art, designer furniture, rare collectibles, and curated home décor. Each piece showcased in our collection is not just a product—it is a statement of craftsmanship and a story of culture.
                 </p>
                 <p className="founders-quote-text">
-                  We founded this brand on a simple, yet profound belief: that our homes should be the truest reflection of who we are. Every piece you find here—from a bold Limited Edition art piece to an enduring item of Furniture—is chosen to inspire you to Dream, Desire, and Design a life you love.
+                  We partner with esteemed brands, world-class galleries, visionary artists, and renowned design houses to bring together a selection that is truly unparalleled. Every item is meticulously conceptualized and curated to ensure it stands out for exceptional quality, timeless aesthetics, and bold creativity.
                 </p>
                 <p className="founders-quote-text">
-                  We are driven by the enduring legacy of Dmart and committed to merging quality craftsmanship with visionary aesthetics. Thank you for inviting our designs into your home. We look forward to being a part of your story.
+                  Our mission is to create an inspiring space where art and design enthusiasts can explore extraordinary treasures, embark on new journeys of discovery, and find pieces that elevate their environments. We invite you to immerse yourself in our world of excellence, where your pursuit of beauty and distinction finds its perfect expression.
                 </p>
               </div>
               <div className="founders-note-signature">
@@ -577,7 +814,7 @@ export default function Home() {
     
 
       {/* Hall of Fame: Customer Testimonials Section */}
-      <section className="hall-of-fame-section" style={{marginTop: '-10rem'}}>
+      <section className="hall-of-fame-section">
         <div className="hall-of-fame-container">
           <h2 className="hall-of-fame-title">
             Hall of Fame: <br /> Stories from Our Customers
