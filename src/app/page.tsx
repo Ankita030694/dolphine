@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Script from 'next/script';
 import { useState } from 'react';
 
 function MobileNav() {
@@ -848,6 +849,10 @@ export default function Home() {
     
 
       {/* Hall of Fame: Customer Testimonials Section */}
+      <Script 
+        src="https://elfsightcdn.com/platform.js" 
+        strategy="lazyOnload"
+      />
       <section className="hall-of-fame-section">
         <div className="hall-of-fame-container">
           <h2 className="hall-of-fame-title">
@@ -855,45 +860,10 @@ export default function Home() {
           </h2>
 
           <div className="hall-of-fame-content">
-            <div className="testimonials-carousel">
-              <article className="testimonial-card-dark">
-                <h3 className="testimonial-card-heading">
-                  5/5 Stars | &quot;The Perfect Statement Piece&quot;
-                </h3>
-                <p className="testimonial-card-text">
-                  I purchased a piece from the Limited Editions line, and it completely transformed my living room. The craftsmanship is flawless—it truly feels like a work of art. The quality is exceptional, and the delivery was handled with such care.&quot; <span className="testimonial-author">— Anika P., Mumbai</span>
-                </p>
-              </article>
-
-              <article className="testimonial-card-dark">
-                <h3 className="testimonial-card-heading">
-                  5/5 Stars | &quot;Furniture Built to Last&quot;
-                </h3>
-                <p className="testimonial-card-text">
-                  We finally upgraded our dining set with a piece from woodmart.in. It is stunning, robust, and exactly as described. The customer service team was helpful through the entire process, making our investment feel absolutely worthwhile.&quot; <span className="testimonial-author">— Rajesh K., Bangalore</span>
-                </p>
-              </article>
-
-              <article className="testimonial-card-dark">
-                <h3 className="testimonial-card-heading">
-                  4/5 Stars | &quot;Thoughtful and Unique Gifts&quot;
-                </h3>
-                <p className="testimonial-card-text">
-                  &quot;I always turn to giftsbydmart.com when I need something special. The decorative items are unique and feel much more personal than anything else on the market. They never fail to impress!&quot; <span className="testimonial-author">— Meera S., Delhi</span>
-                </p>
-              </article>
-
-              <article className="testimonial-card-dark">
-                <h3 className="testimonial-card-heading">
-                  5/5 Stars | &quot;Truly a Home Design Partner&quot;
-                </h3>
-                <p className="testimonial-card-text">
-                  &quot;From selecting the initial art print to choosing the final decor accents, the quality across all the House of Dolphin sub-brands is consistent. They truly embody the &apos;Dream - Desire - Design&apos; tagline. Highly recommend.&quot; <span className="testimonial-author">— Daniel T., Chennai</span>
-                </p>
-              </article>
-            </div>
-
-            
+            <div 
+              className="elfsight-app-dbccfea4-5473-4d05-80b6-cb94077aa339" 
+              data-elfsight-app-lazy
+            />
           </div>
         </div>
       </section>
