@@ -120,9 +120,6 @@ function MobileNav() {
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {/* Close Button */}
-
-
             {/* Navigation Links */}
             <a
               href="https://godsbydmart.com/"
@@ -139,10 +136,10 @@ function MobileNav() {
                 transition: 'opacity 0.3s ease',
               }}
             >
-              Limited Editions
+              Gods By Dmart
             </a>
             <a
-              href="https://www.giftsbydmart.com/"
+              href="https://www.lotabydecor.com/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
@@ -156,10 +153,10 @@ function MobileNav() {
                 transition: 'opacity 0.3s ease',
               }}
             >
-              Decorative &amp; Arts
+              lota - Decorative &amp; functional Gifts
             </a>
             <a
-              href="https://www.decorbydmart.com/"
+              href="https://www.argentario.in/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
@@ -173,7 +170,25 @@ function MobileNav() {
                 transition: 'opacity 0.3s ease',
               }}
             >
-              Decorative
+              Argentario - Decorative &amp; Arts
+            </a>
+            <a
+              href="https://www.woodmartdmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              style={{
+                color: '#FFECDB',
+                textDecoration: 'none',
+                fontSize: '1.25rem',
+                fontWeight: 400,
+                fontFamily: 'Poppins, sans-serif',
+                padding: '0.75rem 0',
+                transition: 'opacity 0.3s ease',
+                whiteSpace: 'normal',
+              }}
+            >
+              Woodmart - Custom handmade<br />Furniture
             </a>
           </div>
 
@@ -520,10 +535,10 @@ export default function Home() {
               alignItems: "center",
               justifyContent: "center",
               gap: "50px",
-              flexWrap: "wrap",
+              flexWrap: "nowrap",
+              whiteSpace: "nowrap",
             }}
           >
-
             <a
               href="https://godsbydmart.com/"
               target="_blank"
@@ -540,13 +555,13 @@ export default function Home() {
                 fontWeight: 500,
                 fontSize: "18px",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
               }}
             >
-              Limited Editions
+              Gods By Dmart
             </a>
-
             <a
-              href="https://www.giftsbydmart.com/"
+              href="https://www.lotabydecor.com/"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -561,17 +576,15 @@ export default function Home() {
                 fontWeight: 500,
                 fontSize: "18px",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
               }}
             >
-              Decorative &amp; Arts
+              lota - Decorative &amp; functional Gifts
             </a>
             <a
-              href="https://www.decorbydmart.com/"
+              href="https://www.argentario.in/"
               target="_blank"
               rel="noopener noreferrer"
-              
-            >
-            <div
               style={{
                 display: "flex",
                 padding: "15px 40px",
@@ -583,12 +596,33 @@ export default function Home() {
                 color: "#fff",
                 fontWeight: 500,
                 fontSize: "18px",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
               }}
             >
-              Decorative
-            </div>
+              Argentario - Decorative &amp; Arts
             </a>
-           
+            <a
+              href="https://www.woodmartdmart.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Woodmart - Custom handmade Furniture
+            </a>
           </nav>
         </header>
       </div>
@@ -600,7 +634,7 @@ export default function Home() {
           <h3 className="about-title">about</h3>
           
           {/* Section 2: Brand Name Heading */}
-          <h2 className="about-brand-name">House Of Dolphine</h2>
+          <h2 className="about-brand-name">Home & Lifestyle Brand</h2>
           
           {/* Section 3: Body Text - Two Column Layout */}
           <div className="about-content">
