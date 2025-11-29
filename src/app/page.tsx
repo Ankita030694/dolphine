@@ -524,7 +524,7 @@ export default function Home() {
                 lineHeight: "50px",
               }}
             >
-              House Of Dolphine
+              House Of Dolphin
             </h1>
           </div>
 
