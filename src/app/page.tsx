@@ -221,269 +221,164 @@ function MobileNav() {
 }
 
 function PartnerStrip() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <section 
       className="partner-strip"
       style={{
         background: '#1C3B4E',
         color: '#FFECDB',
-        padding: isExpanded ? '3rem 2rem' : '1.5rem 2rem',
-        transition: 'padding 0.3s ease',
+        padding: '3rem 2rem',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
       <div className="partner-strip-container" style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
-        {!isExpanded ? (
-          <div 
-            className="partner-strip-collapsed"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              cursor: 'pointer',
-              minHeight: '60px',
-            }}
-            onClick={() => setIsExpanded(true)}
-          >
-            <h3 
-              className="partner-strip-title-collapsed"
+        <div 
+          className="partner-strip-expanded"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            gap: '3rem',
+            marginTop: '1rem',
+          }}
+        >
+          <div className="partner-strip-content" style={{ flex: '1' }}>
+            <h2 
+              className="partner-strip-title-expanded"
               style={{
-                fontSize: '2.5rem',
+                fontSize: '3rem',
                 fontWeight: '500',
                 color: '#FFECDB',
-                margin: 0,
-                height: 'fit-content',
-                fontFamily: 'Playfair Display',
+                marginBottom: '1.5rem',
+                marginTop: 0,
               }}
             >
               Partner with us
-            </h3>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsExpanded(true);
-              }}
-              className="partner-strip-expand-btn"
+            </h2>
+            <p 
+              className="partner-strip-description"
               style={{
-                background: 'transparent',
-                border: 'none',
+                fontSize: '1.1rem',
+                lineHeight: '1.6',
                 color: '#FFECDB',
-                cursor: 'pointer',
-                fontSize: '2rem',
-                padding: '0.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'transform 0.3s ease',
+                margin: 0,
               }}
-              aria-label="Expand partner section"
             >
-              <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path 
-                  d="M12 5V19M5 12H19" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+              Join the Dmart legacy: Become a House of Dolphin franchise partner and bring premium design to your city.
+            </p>
           </div>
-        ) : (
-          <>
-            <button
-              onClick={() => setIsExpanded(false)}
-              className="partner-strip-close-btn"
-              style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '2rem',
-                background: 'transparent',
-                border: 'none',
-                color: '#FFECDB',
-                cursor: 'pointer',
-                fontSize: '1.5rem',
-                padding: '0.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                zIndex: 10,
+          <div className="partner-strip-form-wrapper" style={{ flex: '1' }}>
+            <form 
+              className="partner-strip-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Handle form submission here
               }}
-              aria-label="Collapse partner section"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+              }}
             >
-              <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
+              <input
+                type="text"
+                placeholder="Name"
+                required
+                className="partner-strip-input"
+                style={{
+                  padding: '0.75rem 0',
+                  border: 'none',
+                  borderBottom: '2px solid #FFECDB',
+                  color: '#FFECDB',
+                  fontSize: '1rem',
+                  fontFamily: 'Poppins',
+                  outline: 'none',
+                }}
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                className="partner-strip-input"
+                style={{
+                  padding: '0.75rem 0',
+                  border: 'none',
+                  borderBottom: '2px solid #FFECDB',
+                  color: '#FFECDB',
+                  fontSize: '1rem',
+                  fontFamily: 'Poppins',
+                  outline: 'none',
+                }}
+              />
+              <input
+                type="tel"
+                placeholder="Phone"
+                required
+                className="partner-strip-input"
+                style={{
+                  padding: '0.75rem 0',
+                  border: 'none',
+                  borderBottom: '2px solid #FFECDB',
+                  color: '#FFECDB',
+                  fontSize: '1rem',
+                  fontFamily: 'Poppins',
+                  outline: 'none',
+                }}
+              />
+              <input
+                type="text"
+                placeholder="City"
+                required
+                className="partner-strip-input"
+                style={{
+                  padding: '0.75rem 0',
+                  border: 'none',
+                  borderBottom: '2px solid #FFECDB',
+                  color: '#FFECDB',
+                  fontSize: '1rem',
+                  fontFamily: 'Poppins',
+                  outline: 'none',
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Business type"
+                required
+                className="partner-strip-input"
+                style={{
+                  padding: '0.75rem 0',
+                  border: 'none',
+                  borderBottom: '2px solid #FFECDB',  
+                  color: '#FFECDB',
+                  fontSize: '1rem',
+                  fontFamily: 'Poppins',
+                  outline: 'none',
+                }}
+              />
+              <button
+                type="submit"
+                className="partner-strip-submit-btn"
+                style={{
+                  display: 'flex',
+                  padding: '14px 68px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '10px',
+                  borderRadius: '151px',
+                  border: '3px solid #FFECDB',
+                  color: '#FFECDB',
+                  fontSize: '1.2rem',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  marginTop: '0.5rem',
+                }}
               >
-                <path 
-                  d="M5 12H19" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-            <div 
-              className="partner-strip-expanded"
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                gap: '3rem',
-                marginTop: '1rem',
-              }}
-            >
-              <div className="partner-strip-content" style={{ flex: '1' }}>
-                <h2 
-                  className="partner-strip-title-expanded"
-                  style={{
-                    fontSize: '3rem',
-                    fontWeight: '500',
-                    color: '#FFECDB',
-                    marginBottom: '1.5rem',
-                    marginTop: 0,
-                  }}
-                >
-                  Partner with us
-                </h2>
-                <p 
-                  className="partner-strip-description"
-                  style={{
-                    fontSize: '1.1rem',
-                    lineHeight: '1.6',
-                    color: '#FFECDB',
-                    margin: 0,
-                  }}
-                >
-                  Join the Dmart legacy: Become a House of Dolphin franchise partner and bring premium design to your city.
-                </p>
-              </div>
-              <div className="partner-strip-form-wrapper" style={{ flex: '1' }}>
-                <form 
-                  className="partner-strip-form"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    // Handle form submission here
-                  }}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                  }}
-                >
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    required
-                    className="partner-strip-input"
-                    style={{
-                      padding: '0.75rem 0',
-                      border: 'none',
-                      borderBottom: '2px solid #FFECDB',
-                      color: '#FFECDB',
-                      fontSize: '1rem',
-                      fontFamily: 'Poppins',
-                      outline: 'none',
-                    }}
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    className="partner-strip-input"
-                    style={{
-                      padding: '0.75rem 0',
-                      border: 'none',
-                      borderBottom: '2px solid #FFECDB',
-                      color: '#FFECDB',
-                      fontSize: '1rem',
-                      fontFamily: 'Poppins',
-                      outline: 'none',
-                    }}
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Phone"
-                    required
-                    className="partner-strip-input"
-                    style={{
-                      padding: '0.75rem 0',
-                      border: 'none',
-                      borderBottom: '2px solid #FFECDB',
-                      color: '#FFECDB',
-                      fontSize: '1rem',
-                      fontFamily: 'Poppins',
-                      outline: 'none',
-                    }}
-                  />
-                  <input
-                    type="text"
-                    placeholder="City"
-                    required
-                    className="partner-strip-input"
-                    style={{
-                      padding: '0.75rem 0',
-                      border: 'none',
-                      borderBottom: '2px solid #FFECDB',
-                      color: '#FFECDB',
-                      fontSize: '1rem',
-                      fontFamily: 'Poppins',
-                      outline: 'none',
-                    }}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Business type"
-                    required
-                    className="partner-strip-input"
-                    style={{
-                      padding: '0.75rem 0',
-                      border: 'none',
-                      borderBottom: '2px solid #FFECDB',  
-                      color: '#FFECDB',
-                      fontSize: '1rem',
-                      fontFamily: 'Poppins',
-                      outline: 'none',
-                    }}
-                  />
-                  <button
-                    type="submit"
-                    className="partner-strip-submit-btn"
-                    style={{
-                      display: 'flex',
-                      padding: '14px 68px',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      gap: '10px',
-                      borderRadius: '151px',
-                      border: '3px solid #FFECDB',
-                      color: '#FFECDB',
-                      fontSize: '1.2rem',
-                      fontWeight: '500',
-                      cursor: 'pointer',
-                      marginTop: '0.5rem',
-                    }}
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
-            </div>
-          </>
-        )}
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   );

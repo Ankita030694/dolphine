@@ -2550,8 +2550,7 @@ footer {
 .footer-links-section {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 7rem;
+  gap: 1rem;
   flex: 1;
 }
 
@@ -2626,7 +2625,7 @@ footer {
   }
 
   .footer-links-section {
-    gap: 4.2rem;
+    gap: 2rem;
   }
 
   .brand-large-text {
@@ -2641,7 +2640,7 @@ footer {
   }
 
   .footer-links-section {
-    gap: 2.8rem;
+    gap: 1.5rem;
   }
 
   .brand-large-text {

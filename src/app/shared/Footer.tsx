@@ -1,15 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-
+import Image from 'next/image';
 export default function Footer() {
   return (
     <footer className="dolphin-footer">
       <div className="footer-content">
         <div className="footer-columns">
           <div className="footer-brand-column">
-            <div className="brand-info">
-              <h3 className="brand-title">House of Dolphin</h3>
-              <p className="brand-description">
+            <div className="brand-info" style={{marginTop: '-8rem'}}>
+              <Image src="/White.png" alt="House of Dolphin" width={350} height={200} />
+              <p className="brand-description" style={{marginTop: '-7rem'}}>
                 House of Dolphin is a premier Home & Lifestyle brand driven by the core philosophy: Dream – Desire – Design. Backed by the quality and trust of the Dmart Group, we curate exceptional furniture, art, and gifts for your home.
               </p>
             </div>
@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="footer-links-section">
+          <div className="footer-links-section" style={{marginTop: '2rem'}}>
             <div className="footer-links-column">
               <h4 className="footer-column-title">Shop Our Brands</h4>
               <ul className="footer-link-list">
@@ -37,7 +37,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="footer-links-column">
+            <div className="footer-links-column" style={{marginLeft: '8rem'}}>
               <h4 className="footer-column-title">Contact Us</h4>
               <ul className="footer-link-list">
                 <li><a href="#">Call Us</a></li>
