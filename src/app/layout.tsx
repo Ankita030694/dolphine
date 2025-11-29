@@ -30,20 +30,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dolphin Hotels and Resorts - Luxury Hotels and Resorts in India & United Kingdom",
-  description: "Dolphin Hotels and Resorts represents the grace and elegance of the marine mammal. Dolphin House New Delhi, The Dolphin New Delhi and The Dolphin Ganges Rishikesh the other 3 existing hotels in UK are – Dolphin House London, The Dolphin Reading, The Dolphin Villa Bath.",
-  keywords: "dolphin hotels,dolphin luxury hotels,5 star hotels,resorts in india,business hotels,luxury hotels in india,best hotels in india,hotels in united kingdom,hotels in uk,hotels in london,hotels in reading,hotels in bath,hotels in new delhi,hotels in delhi,luxury resorts in rishikesh,hotels in rishikesh,resorts in uttarakhand",
+  title: "House of Dolphin - Home & Lifestyle Brand | Dmart Exclusif",
+  description: "Welcome to Dmart Exclusif – your trusted destination for luxury spiritual and lifestyle products. We offer a thoughtfully curated collection that blends traditional craftsmanship with modern elegance, featuring handcrafted god idols, premium home décor, festive accessories, and exclusive gifting solutions.",
+  keywords: "house of dolphin,dmart exclusif,home and lifestyle brand,luxury spiritual products,luxury lifestyle products,handcrafted god idols,premium home décor,festive accessories,exclusive gifting solutions,traditional craftsmanship,modern elegance,artisanal products,home decor india,luxury home accessories,spiritual products,curated home décor,designer furniture,rare collectibles,international art",
   openGraph: {
-    title: "Dolphin Hotels and Resorts - Luxury Hotels and Resorts in India & United Kingdom",
-    description: "Dolphin Hotels and Resorts represents the grace and elegance of the marine mammal. Dolphin House New Delhi, The Dolphin New Delhi and The Dolphin Ganges Rishikesh the other 3 existing hotels in UK are – Dolphin House London, The Dolphin Reading, The Dolphin Villa Bath.",
-    url: "https://www.dolphinhotels.com/",
-    siteName: "Dolphin Hotels and Resorts",
+    title: "House of Dolphin - Home & Lifestyle Brand | Dmart Exclusif",
+    description: "Welcome to Dmart Exclusif – your trusted destination for luxury spiritual and lifestyle products. We offer a thoughtfully curated collection that blends traditional craftsmanship with modern elegance, featuring handcrafted god idols, premium home décor, festive accessories, and exclusive gifting solutions.",
+    url: "https://www.houseofdolphin.com/",
+    siteName: "House of Dolphin",
     images: [
       {
-        url: "https://www.dolphinhotels.com/wp-content/uploads/2021/02/logo-1.svg",
+        url: "https://www.houseofdolphin.com/logo-dol.png",
         width: 1200,
         height: 630,
-        alt: "Dolphin Hotels and Resorts",
+        alt: "House of Dolphin - Home & Lifestyle Brand",
       },
     ],
     locale: "en_US",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Dolphin Hotels and Resorts - Luxury Hotels and Resorts in India & United Kingdom",
-    description: "Dolphin Hotels and Resorts represents the grace and elegance of the marine mammal. Dolphin House New Delhi, The Dolphin New Delhi and The Dolphin Ganges Rishikesh the other 3 existing hotels in UK are – Dolphin House London, The Dolphin Reading, The Dolphin Villa Bath.",
-    images: ["https://www.dolphinhotels.com/wp-content/uploads/2021/02/logo-1.svg"],
+    title: "House of Dolphin - Home & Lifestyle Brand | Dmart Exclusif",
+    description: "Welcome to Dmart Exclusif – your trusted destination for luxury spiritual and lifestyle products. We offer a thoughtfully curated collection that blends traditional craftsmanship with modern elegance, featuring handcrafted god idols, premium home décor, festive accessories, and exclusive gifting solutions.",
+    images: ["https://www.houseofdolphin.com/logo-dol.png"],
   },
   robots: {
     index: true,
