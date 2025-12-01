@@ -7,9 +7,8 @@ export default function Footer() {
       <div className="footer-content">
         <div className="footer-columns">
           <div className="footer-brand-column">
-            <div className="brand-info" style={{marginTop: '-8rem'}}>
-              <Image src="/White.png" alt="House of Dolphin" width={350} height={200} />
-              <p className="brand-description" style={{marginTop: '-7rem'}}>
+            <div className="brand-info" style={{marginTop: '2.5rem'}}>
+              <p className="brand-description">
                 House of Dolphin is a premier Home & Lifestyle brand driven by the core philosophy: Dream – Desire – Design. Backed by the quality and trust of the Dmart Group, we curate exceptional furniture, art, and gifts for your home.
               </p>
             </div>
@@ -51,8 +50,8 @@ export default function Footer() {
 
         <div className="footer-divider"></div>
 
-        <div className="footer-brand-large">
-          <h2 className="brand-large-text">House of Dolphin</h2>
+        <div className="footer-brand-large" style={{marginTop: '-2.5rem'}}>
+          <Image src="/White.png" alt="House of Dolphin" width={300} height={100} />
         </div>
       </div>
     </footer>
