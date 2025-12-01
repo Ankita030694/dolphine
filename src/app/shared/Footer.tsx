@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-links-section" style={{marginTop: '2rem'}}>
-            <div className="footer-links-column">
+            <div className="footer-links-column" style={{marginLeft: '8rem'}}>
               <h4 className="footer-column-title">Shop Our Brands</h4>
               <ul className="footer-link-list">
                 <li><a href="https://godsbydmart.com">godsbydmart.com</a></li>
@@ -36,7 +36,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="footer-links-column" style={{marginLeft: '8rem'}}>
+            <div className="footer-links-column" style={{marginLeft: '17rem'}}>
               <h4 className="footer-column-title">Contact Us</h4>
               <ul className="footer-link-list">
                 <li><a href="#">Call Us</a></li>
@@ -50,8 +50,8 @@ export default function Footer() {
 
         <div className="footer-divider"></div>
 
-        <div className="footer-brand-large" style={{marginTop: '-2.5rem'}}>
-          <Image src="/White.png" alt="House of Dolphin" width={300} height={100} />
+        <div className="footer-brand-large" >
+          <Image src="/White.png" alt="House of Dolphin" width={450} height={100} />
         </div>
       </div>
     </footer>
