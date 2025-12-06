@@ -2485,7 +2485,7 @@ footer {
 
 .footer-content {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1600px;
   padding: 0 1.05rem;
 }
 
@@ -2524,11 +2524,12 @@ footer {
 
 .brand-description {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   font-weight: 300;
   line-height: 1.2;
   color: #FFECDB;
   margin: 0;
+  margin-top: -0.4rem;
 }
 
 .social-icons {
@@ -2552,6 +2553,9 @@ footer {
   align-items: flex-start;
   gap: 1rem;
   flex: 1;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .footer-links-column {

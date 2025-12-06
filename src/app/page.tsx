@@ -123,7 +123,7 @@ function MobileNav() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* Navigation Links */}
             <a
-              href="https://godsbydmart.com/"
+              href="https://www.giftsbydmart.com"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
@@ -137,10 +137,21 @@ function MobileNav() {
                 transition: 'opacity 0.3s ease',
               }}
             >
-              Gods By Dmart
+              Gifts by Dmart (Iota)
             </a>
+            <span
+              style={{
+                color: '#FFECDB',
+                fontSize: '1.25rem',
+                fontWeight: 400,
+                fontFamily: 'Poppins, sans-serif',
+                padding: '0.75rem 0',
+              }}
+            >
+              God by Dmart
+            </span>
             <a
-              href="https://www.lotabydecor.com/"
+              href="https://www.decorbydmart.com"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
@@ -154,27 +165,10 @@ function MobileNav() {
                 transition: 'opacity 0.3s ease',
               }}
             >
-              lota - Decorative &amp; functional Gifts
+              Décor by Dmart (Argentario)
             </a>
             <a
-              href="https://www.argentario.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              style={{
-                color: '#FFECDB',
-                textDecoration: 'none',
-                fontSize: '1.25rem',
-                fontWeight: 400,
-                fontFamily: 'Poppins, sans-serif',
-                padding: '0.75rem 0',
-                transition: 'opacity 0.3s ease',
-              }}
-            >
-              Argentario - Decorative &amp; Arts
-            </a>
-            <a
-              href="https://www.woodmartdmart.com/"
+              href="https://linktr.ee/Woodmartexclusif?utm_source=linktree_profile_share&ltsid=0810208b-ce34-4548-8a48-bfce2a04468b"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
@@ -189,7 +183,7 @@ function MobileNav() {
                 whiteSpace: 'normal',
               }}
             >
-              Woodmart - Custom handmade<br />Furniture
+              Furniture by Dmart (Woodmart)
             </a>
           </div>
 
@@ -436,7 +430,7 @@ export default function Home() {
             }}
           >
             <a
-              href="https://godsbydmart.com/"
+              href="https://www.giftsbydmart.com"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -454,10 +448,48 @@ export default function Home() {
                 whiteSpace: "nowrap",
               }}
             >
-              Gods By Dmart
+              Gifts by Dmart (Iota)
+            </a>
+            <span
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              God by Dmart
+            </span>
+            <a
+              href="https://www.decorbydmart.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Décor by Dmart (Argentario)
             </a>
             <a
-              href="https://www.lotabydecor.com/"
+              href="https://linktr.ee/Woodmartexclusif?utm_source=linktree_profile_share&ltsid=0810208b-ce34-4548-8a48-bfce2a04468b"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -475,49 +507,7 @@ export default function Home() {
                 whiteSpace: "nowrap",
               }}
             >
-              lota - Decorative &amp; functional Gifts
-            </a>
-            <a
-              href="https://www.argentario.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                padding: "15px 40px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-                borderRadius: "9px",
-                background: "rgba(28, 59, 78, 0.60)",
-                color: "#fff",
-                fontWeight: 500,
-                fontSize: "18px",
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Argentario - Decorative &amp; Arts
-            </a>
-            <a
-              href="https://www.woodmartdmart.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                padding: "15px 40px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-                borderRadius: "9px",
-                background: "rgba(28, 59, 78, 0.60)",
-                color: "#fff",
-                fontWeight: 500,
-                fontSize: "18px",
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Woodmart - Custom handmade Furniture
+              Furniture by Dmart (Woodmart)
             </a>
           </nav>
         </header>

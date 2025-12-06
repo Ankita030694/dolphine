@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faFacebook, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faYoutube, faAmazon } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 export default function Footer() {
   return (
@@ -13,45 +13,47 @@ export default function Footer() {
               </p>
             </div>
             <div className="social-icons">
-              <a className="social-icon-link" aria-label="X (Twitter)" href="#" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faXTwitter} />
-              </a>
-              <a className="social-icon-link" aria-label="Facebook" href="#" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faFacebook} />
-              </a>
-              <a className="social-icon-link" aria-label="Instagram" href="#" target="_blank" rel="noopener noreferrer">
+              <a className="social-icon-link" aria-label="Instagram" href="https://www.instagram.com/dmart_exclusif?igsh=ZDh0aDNueDB3ajBi&utm_source=qr" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faInstagram} />
+              </a>
+              <a className="social-icon-link" aria-label="YouTube" href="https://youtube.com/@dmartexclusif1?si=2IM_wyLGY_slgPM_" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faYoutube} />
+              </a>
+              <a className="social-icon-link" aria-label="Amazon" href="https://www.amazon.in/stores/DmartExclusif/page/A3C86975-8D99-4DA1-A710-A175A81B30B1?lp_asin=B0D4DWS1DS&ref_=cm_sw_r_apin_ast_store_WJCE0B3HKMZ60MB488ZJ&dplnkId=c9084a8d-71de-4f24-aae0-4d9f893540c8&dplnk=Y" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faAmazon} />
               </a>
             </div>
           </div>
 
-          <div className="footer-links-section" style={{marginTop: '2rem'}}>
-            <div className="footer-links-column" style={{marginLeft: '8rem'}}>
+          <div className="footer-links-section" style={{ marginLeft: '5rem', marginTop: '2rem', flexWrap: 'nowrap', gap: '3.5rem'}}>
+            <div className="footer-links-column" style={{minWidth: '250px', flex: '0 0 auto'}}>
               <h4 className="footer-column-title">Shop Our Brands</h4>
               <ul className="footer-link-list">
-                <li><a href="https://godsbydmart.com">godsbydmart.com</a></li>
-                <li><a href="https://giftsbydmart.com">giftsbydmart.com</a></li>
-                <li><a href="https://decorbydmart.com">decorbydmart.com</a></li>
-                <li><a href="https://woodmart.in">woodmart.in</a></li>
+                <li style={{whiteSpace: 'nowrap'}}><a href="https://www.giftsbydmart.com">Gifts by Dmart (Iota)</a></li>
+                <li style={{whiteSpace: 'nowrap'}}>God by Dmart</li>
+                <li style={{whiteSpace: 'nowrap'}}><a href="https://www.decorbydmart.com">Décor by Dmart (Argentario)</a></li>
+                <li style={{whiteSpace: 'nowrap'}}><a href="https://linktr.ee/Woodmartexclusif?utm_source=linktree_profile_share&ltsid=0810208b-ce34-4548-8a48-bfce2a04468b">Furniture by Dmart (Woodmart)</a></li>
               </ul>
             </div>
 
-            <div className="footer-links-column" style={{marginLeft: '17rem'}}>
-              <h4 className="footer-column-title">Contact Us</h4>
+            <div className="footer-links-column" style={{marginLeft: '5rem', minWidth: '350px', flex: '0 0 auto'}}>
+              <h4 className="footer-column-title">Location</h4>
               <ul className="footer-link-list">
-                <li><a href="#">Call Us</a></li>
-                <li><a href="#">Email Us</a></li>
-                <li><a href="#">Visit Our Office/Showroom</a></li>
-                <li><a href="#">View Location on Map</a></li>
+                <li style={{whiteSpace: 'nowrap'}}>For Franchise Enquiry : <a href="tel:+919560891360">+91 95608 91360</a></li>
+                <li style={{whiteSpace: 'nowrap'}}>For Private Viewing : <a href="tel:+919560891354">+91 95608 91354</a></li>
+                <li style={{whiteSpace: 'nowrap'}}>Customer Service : <a href="tel:+919560891338">+91 95608 91338</a></li>
+                <li style={{whiteSpace: 'nowrap'}}>Email: <a href="mailto:crm@dolphin-india.com">crm@dolphin-india.com</a></li>
+                <li style={{whiteSpace: 'nowrap'}}>Flagship Store Address: 2nd Floor, K-405, Near Metro Pillar No. 119, <br /> Ghitorni, New Delhi, Delhi 110030</li>
               </ul>
             </div>
           </div>
         </div>
+       
 
         <div className="footer-divider"></div>
 
         <div className="footer-brand-large" >
-          <Image src="/White.png" alt="House of Dolphin" width={450} height={100} />
+          <Image src="/footer_logo.png" alt="House of Dolphin" width={500} height={900} />
         </div>
       </div>
     </footer>
