@@ -23,7 +23,7 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faAmazon} />
               </a>
             </div>
-          </div>
+          </div> 
 
           <div className="footer-links-section" style={{ marginLeft: '5rem', marginTop: '2rem', flexWrap: 'nowrap', gap: '3.5rem'}}>
             <div className="footer-links-column" style={{minWidth: '250px', flex: '0 0 auto'}}>
