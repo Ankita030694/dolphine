@@ -122,6 +122,17 @@ function MobileNav() {
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {/* Navigation Links */}
+            <span
+              style={{
+                color: '#FFECDB',
+                fontSize: '1.25rem',
+                fontWeight: 400,
+                fontFamily: 'Poppins, sans-serif',
+                padding: '0.75rem 0',
+              }}
+            >
+              God by Dmart
+            </span>
             <a
               href="https://www.giftsbydmart.com"
               target="_blank"
@@ -139,17 +150,6 @@ function MobileNav() {
             >
               Gifts by Dmart (Iota)
             </a>
-            <span
-              style={{
-                color: '#FFECDB',
-                fontSize: '1.25rem',
-                fontWeight: 400,
-                fontFamily: 'Poppins, sans-serif',
-                padding: '0.75rem 0',
-              }}
-            >
-              God by Dmart
-            </span>
             <a
               href="https://www.decorbydmart.com"
               target="_blank"
@@ -429,6 +429,23 @@ export default function Home() {
               whiteSpace: "nowrap",
             }}
           >
+            <span
+              style={{
+                display: "flex",
+                padding: "15px 40px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "9px",
+                background: "rgba(28, 59, 78, 0.60)",
+                color: "#fff",
+                fontWeight: 500,
+                fontSize: "18px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              God by Dmart
+            </span>
             <a
               href="https://www.giftsbydmart.com"
               target="_blank"
@@ -450,23 +467,6 @@ export default function Home() {
             >
               Gifts by Dmart (Iota)
             </a>
-            <span
-              style={{
-                display: "flex",
-                padding: "15px 40px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-                borderRadius: "9px",
-                background: "rgba(28, 59, 78, 0.60)",
-                color: "#fff",
-                fontWeight: 500,
-                fontSize: "18px",
-                whiteSpace: "nowrap",
-              }}
-            >
-              God by Dmart
-            </span>
             <a
               href="https://www.decorbydmart.com"
               target="_blank"

@@ -55,7 +55,7 @@ export default function Footer() {
           <div className="footer-divider"></div>
 
           <div className="footer-brand-large" >
-            <Image src="/footer_logo.png" alt="House of Dolphin" width={500} height={900} />
+            <Image src="/footer_logo.png" alt="House of Dolphin" width={500} height={900} unoptimized />
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function Footer() {
           <div className="footer-mobile-divider"></div>
 
           <div className="footer-mobile-logo">
-            <Image src="/footer_logo.png" alt="House of Dolphin" width={300} height={540} style={{width: '100%', height: 'auto', maxWidth: '300px'}} />
+            <Image src="/footer_logo.png" alt="House of Dolphin" width={300} height={540} style={{width: '100%', height: 'auto', maxWidth: '300px'}} unoptimized />
           </div>
         </div>
       </div>
