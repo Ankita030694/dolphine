@@ -292,18 +292,12 @@ function PartnerStrip() {
     }
   };
 
-  // Validate email: valid email format
+  // Handle email change - validation only on submit
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setFormData(prev => ({ ...prev, email: value }));
-    
-    // Basic email validation
-    if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-      setFieldErrors(prev => ({ ...prev, email: 'Please enter a valid email address' }));
-    } else {
-      setFieldErrors(prev => ({ ...prev, email: '' }));
-    }
-    
+    // Clear error when user starts typing
+    setFieldErrors(prev => ({ ...prev, email: '' }));
     if (submitStatus !== 'idle') {
       setSubmitStatus('idle');
       setErrorMessage('');
@@ -610,11 +604,6 @@ function PartnerStrip() {
                 {fieldErrors.phone && (
                   <div style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins' }}>
                     {fieldErrors.phone}
-                  </div>
-                )}
-                {!fieldErrors.phone && formData.phone && (
-                  <div style={{ color: '#FFECDB', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins', opacity: 0.7 }}>
-                    {formData.phone.length}/10 digits
                   </div>
                 )}
               </div>
