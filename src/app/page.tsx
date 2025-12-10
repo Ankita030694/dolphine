@@ -214,8 +214,55 @@ function MobileNav() {
   );
 }
 
+// List of all Indian States and Union Territories
+const INDIAN_STATES_AND_UTS = [
+  'Andhra Pradesh',
+  'Arunachal Pradesh',
+  'Assam',
+  'Bihar',
+  'Chhattisgarh',
+  'Goa',
+  'Gujarat',
+  'Haryana',
+  'Himachal Pradesh',
+  'Jharkhand',
+  'Karnataka',
+  'Kerala',
+  'Madhya Pradesh',
+  'Maharashtra',
+  'Manipur',
+  'Meghalaya',
+  'Mizoram',
+  'Nagaland',
+  'Odisha',
+  'Punjab',
+  'Rajasthan',
+  'Sikkim',
+  'Tamil Nadu',
+  'Telangana',
+  'Tripura',
+  'Uttar Pradesh',
+  'Uttarakhand',
+  'West Bengal',
+  'Andaman and Nicobar Islands',
+  'Chandigarh',
+  'Dadra and Nagar Haveli and Daman and Diu',
+  'Delhi',
+  'Jammu and Kashmir',
+  'Ladakh',
+  'Lakshadweep',
+  'Puducherry',
+];
+
 function PartnerStrip() {
   const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    city: '',
+    businessType: '',
+  });
+  const [fieldErrors, setFieldErrors] = useState({
     name: '',
     email: '',
     phone: '',
@@ -231,17 +278,125 @@ function PartnerStrip() {
   // Note: Must use NEXT_PUBLIC_ prefix for client-side access
   const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_SCRIPT_URL_SHEET || '';
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-    // Reset status when user starts typing
+  // Validate name: only alphabets and spaces
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Allow only alphabets, spaces, and common name characters like apostrophes and hyphens
+    if (value === '' || /^[a-zA-Z\s'.-]*$/.test(value)) {
+      setFormData(prev => ({ ...prev, name: value }));
+      setFieldErrors(prev => ({ ...prev, name: '' }));
+      if (submitStatus !== 'idle') {
+        setSubmitStatus('idle');
+        setErrorMessage('');
+      }
+    }
+  };
+
+  // Validate email: valid email format
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFormData(prev => ({ ...prev, email: value }));
+    
+    // Basic email validation
+    if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      setFieldErrors(prev => ({ ...prev, email: 'Please enter a valid email address' }));
+    } else {
+      setFieldErrors(prev => ({ ...prev, email: '' }));
+    }
+    
     if (submitStatus !== 'idle') {
       setSubmitStatus('idle');
       setErrorMessage('');
     }
+  };
+
+  // Validate phone: only numeric, max 10 digits
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Allow only numbers and limit to 10 digits
+    if (value === '' || (/^\d+$/.test(value) && value.length <= 10)) {
+      setFormData(prev => ({ ...prev, phone: value }));
+      setFieldErrors(prev => ({ ...prev, phone: '' }));
+      if (submitStatus !== 'idle') {
+        setSubmitStatus('idle');
+        setErrorMessage('');
+      }
+    }
+  };
+
+  // Handle city dropdown change
+  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setFormData(prev => ({ ...prev, city: value }));
+    setFieldErrors(prev => ({ ...prev, city: '' }));
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+      setErrorMessage('');
+    }
+  };
+
+  // Handle business type (text field)
+  const handleBusinessTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFormData(prev => ({ ...prev, businessType: value }));
+    setFieldErrors(prev => ({ ...prev, businessType: '' }));
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+      setErrorMessage('');
+    }
+  };
+
+  const validateForm = (): boolean => {
+    const errors = {
+      name: '',
+      email: '',
+      phone: '',
+      city: '',
+      businessType: '',
+    };
+    let isValid = true;
+
+    // Validate name
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required';
+      isValid = false;
+    } else if (!/^[a-zA-Z\s'.-]+$/.test(formData.name.trim())) {
+      errors.name = 'Name should only contain alphabets';
+      isValid = false;
+    }
+
+    // Validate email
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Please enter a valid email address';
+      isValid = false;
+    }
+
+    // Validate phone
+    if (!formData.phone.trim()) {
+      errors.phone = 'Phone is required';
+      isValid = false;
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      errors.phone = 'Phone must be exactly 10 digits';
+      isValid = false;
+    }
+
+    // Validate city
+    if (!formData.city) {
+      errors.city = 'Please select a state/UT';
+      isValid = false;
+    }
+
+    // Validate business type
+    if (!formData.businessType.trim()) {
+      errors.businessType = 'Business type is required';
+      isValid = false;
+    }
+
+    setFieldErrors(errors);
+    return isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -250,6 +405,13 @@ function PartnerStrip() {
     if (!GOOGLE_SCRIPT_URL) {
       setSubmitStatus('error');
       setErrorMessage('Form submission is not configured. Please contact the administrator.');
+      return;
+    }
+
+    // Validate form before submission
+    if (!validateForm()) {
+      setSubmitStatus('error');
+      setErrorMessage('Please fix the errors in the form');
       return;
     }
 
@@ -274,6 +436,13 @@ function PartnerStrip() {
       // The form data will still be sent to Google Sheets
       setSubmitStatus('success');
       setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        city: '',
+        businessType: '',
+      });
+      setFieldErrors({
         name: '',
         email: '',
         phone: '',
@@ -351,111 +520,179 @@ function PartnerStrip() {
                 gap: '1rem',
               }}
             >
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-                disabled={isSubmitting}
-                className="partner-strip-input"
-                style={{
-                  padding: '0.75rem 0',
-                  border: 'none',
-                  borderBottom: '2px solid #FFECDB',
-                  color: '#FFECDB',
-                  fontSize: '1rem',
-                  fontFamily: 'Poppins',
-                  outline: 'none',
-                  background: 'transparent',
-                  opacity: isSubmitting ? 0.6 : 1,
-                }}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-                disabled={isSubmitting}
-                className="partner-strip-input"
-                style={{
-                  padding: '0.75rem 0',
-                  border: 'none',
-                  borderBottom: '2px solid #FFECDB',
-                  color: '#FFECDB',
-                  fontSize: '1rem',
-                  fontFamily: 'Poppins',
-                  outline: 'none',
-                  background: 'transparent',
-                  opacity: isSubmitting ? 0.6 : 1,
-                }}
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                required
-                disabled={isSubmitting}
-                className="partner-strip-input"
-                style={{
-                  padding: '0.75rem 0',
-                  border: 'none',
-                  borderBottom: '2px solid #FFECDB',
-                  color: '#FFECDB',
-                  fontSize: '1rem',
-                  fontFamily: 'Poppins',
-                  outline: 'none',
-                  background: 'transparent',
-                  opacity: isSubmitting ? 0.6 : 1,
-                }}
-              />
-              <input
-                type="text"
-                name="city"
-                placeholder="City"
-                value={formData.city}
-                onChange={handleInputChange}
-                required
-                disabled={isSubmitting}
-                className="partner-strip-input"
-                style={{
-                  padding: '0.75rem 0',
-                  border: 'none',
-                  borderBottom: '2px solid #FFECDB',
-                  color: '#FFECDB',
-                  fontSize: '1rem',
-                  fontFamily: 'Poppins',
-                  outline: 'none',
-                  background: 'transparent',
-                  opacity: isSubmitting ? 0.6 : 1,
-                }}
-              />
-              <input
-                type="text"
-                name="businessType"
-                placeholder="Business type"
-                value={formData.businessType}
-                onChange={handleInputChange}
-                required
-                disabled={isSubmitting}
-                className="partner-strip-input"
-                style={{
-                  padding: '0.75rem 0',
-                  border: 'none',
-                  borderBottom: '2px solid #FFECDB',  
-                  color: '#FFECDB',
-                  fontSize: '1rem',
-                  fontFamily: 'Poppins',
-                  outline: 'none',
-                  background: 'transparent',
-                  opacity: isSubmitting ? 0.6 : 1,
-                }}
-              />
+              {/* Name Input - Only Alphabets */}
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={handleNameChange}
+                  required
+                  disabled={isSubmitting}
+                  className="partner-strip-input"
+                  style={{
+                    padding: '0.75rem 0',
+                    border: 'none',
+                    borderBottom: fieldErrors.name ? '2px solid #f87171' : '2px solid #FFECDB',
+                    color: '#FFECDB',
+                    fontSize: '1rem',
+                    fontFamily: 'Poppins',
+                    outline: 'none',
+                    background: 'transparent',
+                    opacity: isSubmitting ? 0.6 : 1,
+                    width: '100%',
+                  }}
+                />
+                {fieldErrors.name && (
+                  <div style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins' }}>
+                    {fieldErrors.name}
+                  </div>
+                )}
+              </div>
+
+              {/* Email Input - Valid Email */}
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleEmailChange}
+                  required
+                  disabled={isSubmitting}
+                  className="partner-strip-input"
+                  style={{
+                    padding: '0.75rem 0',
+                    border: 'none',
+                    borderBottom: fieldErrors.email ? '2px solid #f87171' : '2px solid #FFECDB',
+                    color: '#FFECDB',
+                    fontSize: '1rem',
+                    fontFamily: 'Poppins',
+                    outline: 'none',
+                    background: 'transparent',
+                    opacity: isSubmitting ? 0.6 : 1,
+                    width: '100%',
+                  }}
+                />
+                {fieldErrors.email && (
+                  <div style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins' }}>
+                    {fieldErrors.email}
+                  </div>
+                )}
+              </div>
+
+              {/* Phone Input - Numeric Only, Max 10 Digits */}
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone (10 digits)"
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  required
+                  disabled={isSubmitting}
+                  maxLength={10}
+                  className="partner-strip-input"
+                  style={{
+                    padding: '0.75rem 0',
+                    border: 'none',
+                    borderBottom: fieldErrors.phone ? '2px solid #f87171' : '2px solid #FFECDB',
+                    color: '#FFECDB',
+                    fontSize: '1rem',
+                    fontFamily: 'Poppins',
+                    outline: 'none',
+                    background: 'transparent',
+                    opacity: isSubmitting ? 0.6 : 1,
+                    width: '100%',
+                  }}
+                />
+                {fieldErrors.phone && (
+                  <div style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins' }}>
+                    {fieldErrors.phone}
+                  </div>
+                )}
+                {!fieldErrors.phone && formData.phone && (
+                  <div style={{ color: '#FFECDB', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins', opacity: 0.7 }}>
+                    {formData.phone.length}/10 digits
+                  </div>
+                )}
+              </div>
+
+              {/* City Dropdown - Indian States and UTs */}
+              <div>
+                <select
+                  name="city"
+                  value={formData.city}
+                  onChange={handleCityChange}
+                  required
+                  disabled={isSubmitting}
+                  className="partner-strip-input"
+                  style={{
+                    padding: '0.75rem 0',
+                    border: 'none',
+                    borderBottom: fieldErrors.city ? '2px solid #f87171' : '2px solid #FFECDB',
+                    color: formData.city ? '#FFECDB' : '#FFECDB80',
+                    fontSize: '1rem',
+                    fontFamily: 'Poppins',
+                    outline: 'none',
+                    background: 'transparent',
+                    opacity: isSubmitting ? 0.6 : 1,
+                    width: '100%',
+                    cursor: 'pointer',
+                    appearance: 'none',
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFECDB' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 0 center',
+                    paddingRight: '1.5rem',
+                  }}
+                >
+                  <option value="" style={{ color: '#1C3B4E', background: '#FFECDB' }}>
+                    Select State/UT
+                  </option>
+                  {INDIAN_STATES_AND_UTS.map((state) => (
+                    <option key={state} value={state} style={{ color: '#1C3B4E', background: '#FFECDB' }}>
+                      {state}
+                    </option>
+                  ))}
+                </select>
+                {fieldErrors.city && (
+                  <div style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins' }}>
+                    {fieldErrors.city}
+                  </div>
+                )}
+              </div>
+
+              {/* Business Type Input - Text Field */}
+              <div>
+                <input
+                  type="text"
+                  name="businessType"
+                  placeholder="Business type"
+                  value={formData.businessType}
+                  onChange={handleBusinessTypeChange}
+                  required
+                  disabled={isSubmitting}
+                  className="partner-strip-input"
+                  style={{
+                    padding: '0.75rem 0',
+                    border: 'none',
+                    borderBottom: fieldErrors.businessType ? '2px solid #f87171' : '2px solid #FFECDB',
+                    color: '#FFECDB',
+                    fontSize: '1rem',
+                    fontFamily: 'Poppins',
+                    outline: 'none',
+                    background: 'transparent',
+                    opacity: isSubmitting ? 0.6 : 1,
+                    width: '100%',
+                  }}
+                />
+                {fieldErrors.businessType && (
+                  <div style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem', fontFamily: 'Poppins' }}>
+                    {fieldErrors.businessType}
+                  </div>
+                )}
+              </div>
               
               {/* Status Messages */}
               {submitStatus === 'success' && (

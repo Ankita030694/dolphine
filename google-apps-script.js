@@ -92,10 +92,6 @@ function doPost(e) {
  * Optional: Test function to verify the script works
  * Run this from the Apps Script editor to test
  */
-/**
- * Optional: Test function to verify the script works
- * Run this from the Apps Script editor to test
- */
 function testPost() {
   var testData = {
     name: 'Test User',
