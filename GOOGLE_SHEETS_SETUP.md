@@ -9,13 +9,15 @@ This guide will help you set up direct form submissions to Google Sheets without
 1. Go to [Google Sheets](https://sheets.google.com)
 2. Create a new spreadsheet
 3. Name it something like "Partner Form Submissions"
-4. In Row 1, add these headers (one per column):
-   - Name
-   - Email
-   - Phone
-   - City
-   - Business Type
-   - Timestamp
+4. In Row 1, add these headers in this exact order (one per column):
+   - **Timestamp**
+   - **Name**
+   - **Phone**
+   - **Email**
+   - **City**
+   - **Business Type**
+
+**Note:** New entries will be inserted at the top (row 2), right after the headers. The timestamp will be automatically converted to Indian Standard Time (IST) format (DD/MM/YYYY HH:MM:SS IST).
 
 ### 2. Create Google Apps Script
 
@@ -97,7 +99,9 @@ Add the same environment variable in your hosting platform:
 
 1. Fill out the form on your website
 2. Submit it
-3. Check your Google Sheet - you should see a new row with the submitted data
+3. Check your Google Sheet - you should see a new row **at the top** (row 2, right after headers) with the submitted data
+4. Verify the timestamp is in Indian format (DD/MM/YYYY HH:MM:SS IST)
+5. Each new submission will push previous entries down, keeping the newest at the top
 
 ## Troubleshooting
 
