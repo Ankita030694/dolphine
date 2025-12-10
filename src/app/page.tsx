@@ -215,6 +215,84 @@ function MobileNav() {
 }
 
 function PartnerStrip() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    city: '',
+    businessType: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Replace this URL with your Google Apps Script Web App URL
+  // See instructions below on how to get this URL
+  const GOOGLE_SCRIPT_URL = process.env.SCRIPT_URL_SHEET || '';
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Reset status when user starts typing
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+      setErrorMessage('');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!GOOGLE_SCRIPT_URL) {
+      setSubmitStatus('error');
+      setErrorMessage('Form submission is not configured. Please contact the administrator.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Required for Google Apps Script
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      // With no-cors mode, we can't read the response, so assume success
+      // The form data will still be sent to Google Sheets
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        city: '',
+        businessType: '',
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Failed to submit form. Please try again.');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section 
       className="partner-strip"
@@ -265,10 +343,7 @@ function PartnerStrip() {
           <div className="partner-strip-form-wrapper" style={{ flex: '1' }}>
             <form 
               className="partner-strip-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                // Handle form submission here
-              }}
+              onSubmit={handleSubmit}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -277,8 +352,12 @@ function PartnerStrip() {
             >
               <input
                 type="text"
+                name="name"
                 placeholder="Name"
+                value={formData.name}
+                onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
                 className="partner-strip-input"
                 style={{
                   padding: '0.75rem 0',
@@ -288,12 +367,18 @@ function PartnerStrip() {
                   fontSize: '1rem',
                   fontFamily: 'Poppins',
                   outline: 'none',
+                  background: 'transparent',
+                  opacity: isSubmitting ? 0.6 : 1,
                 }}
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
+                value={formData.email}
+                onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
                 className="partner-strip-input"
                 style={{
                   padding: '0.75rem 0',
@@ -303,12 +388,18 @@ function PartnerStrip() {
                   fontSize: '1rem',
                   fontFamily: 'Poppins',
                   outline: 'none',
+                  background: 'transparent',
+                  opacity: isSubmitting ? 0.6 : 1,
                 }}
               />
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone"
+                value={formData.phone}
+                onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
                 className="partner-strip-input"
                 style={{
                   padding: '0.75rem 0',
@@ -318,12 +409,18 @@ function PartnerStrip() {
                   fontSize: '1rem',
                   fontFamily: 'Poppins',
                   outline: 'none',
+                  background: 'transparent',
+                  opacity: isSubmitting ? 0.6 : 1,
                 }}
               />
               <input
                 type="text"
+                name="city"
                 placeholder="City"
+                value={formData.city}
+                onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
                 className="partner-strip-input"
                 style={{
                   padding: '0.75rem 0',
@@ -333,12 +430,18 @@ function PartnerStrip() {
                   fontSize: '1rem',
                   fontFamily: 'Poppins',
                   outline: 'none',
+                  background: 'transparent',
+                  opacity: isSubmitting ? 0.6 : 1,
                 }}
               />
               <input
                 type="text"
+                name="businessType"
                 placeholder="Business type"
+                value={formData.businessType}
+                onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
                 className="partner-strip-input"
                 style={{
                   padding: '0.75rem 0',
@@ -348,11 +451,37 @@ function PartnerStrip() {
                   fontSize: '1rem',
                   fontFamily: 'Poppins',
                   outline: 'none',
+                  background: 'transparent',
+                  opacity: isSubmitting ? 0.6 : 1,
                 }}
               />
+              
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div style={{ 
+                  color: '#4ade80', 
+                  fontSize: '0.9rem', 
+                  marginTop: '-0.5rem',
+                  fontFamily: 'Poppins',
+                }}>
+                  ✓ Thank you! Your submission has been received.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div style={{ 
+                  color: '#f87171', 
+                  fontSize: '0.9rem', 
+                  marginTop: '-0.5rem',
+                  fontFamily: 'Poppins',
+                }}>
+                  {errorMessage || 'An error occurred. Please try again.'}
+                </div>
+              )}
+
               <button
                 type="submit"
                 className="partner-strip-submit-btn"
+                disabled={isSubmitting}
                 style={{
                   display: 'flex',
                   padding: '14px 68px',
@@ -364,11 +493,13 @@ function PartnerStrip() {
                   color: '#FFECDB',
                   fontSize: '1.2rem',
                   fontWeight: '500',
-                  cursor: 'pointer',
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
                   marginTop: '0.5rem',
+                  opacity: isSubmitting ? 0.6 : 1,
+                  background: 'transparent',
                 }}
               >
-                Submit
+                {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>
             </form>
           </div>
