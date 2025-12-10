@@ -228,7 +228,8 @@ function PartnerStrip() {
 
   // Replace this URL with your Google Apps Script Web App URL
   // See instructions below on how to get this URL
-  const GOOGLE_SCRIPT_URL = process.env.SCRIPT_URL_SHEET || '';
+  // Note: Must use NEXT_PUBLIC_ prefix for client-side access
+  const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_SCRIPT_URL_SHEET || '';
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

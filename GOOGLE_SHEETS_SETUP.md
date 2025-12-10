@@ -64,8 +64,10 @@ If you want to specify a specific sheet ID:
 2. Add your Google Apps Script Web App URL:
 
 ```env
-NEXT_PUBLIC_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+NEXT_PUBLIC_SCRIPT_URL_SHEET=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
 ```
+
+**Important:** The `NEXT_PUBLIC_` prefix is required for client-side components to access the variable.
 
 **Important:** Make sure to use the `/exec` endpoint, not `/dev`
 
@@ -81,11 +83,15 @@ Add the same environment variable in your hosting platform:
 **Vercel:**
 1. Go to your project settings
 2. Navigate to Environment Variables
-3. Add `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` with your Web App URL
+3. Add `NEXT_PUBLIC_SCRIPT_URL_SHEET` with your Web App URL
+4. Make sure to select **all environments** (Production, Preview, Development)
+5. Click Save
+6. Redeploy your application for changes to take effect
 
 **Netlify:**
 1. Go to Site settings > Environment variables
-2. Add `NEXT_PUBLIC_GOOGLE_SCRIPT_URL` with your Web App URL
+2. Add `NEXT_PUBLIC_SCRIPT_URL_SHEET` with your Web App URL
+3. Redeploy your site
 
 ## Testing
 
